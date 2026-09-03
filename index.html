@@ -9,36 +9,41 @@
   </head>
 
   <body class="bg-light text-dark">
-    <!--  NAVIGATION  -->
-    <header class="bg-dark border-b border-dark position-fixed">
-      <nav class="d-flex items-center justify-between px-10 py-4">
+    <!-- NAVIGATION -->
+    <header class="bg-dark border-b border-dark position-fixed w-100">
+      <nav class="d-flex items-center justify-between px-10 py-3">
+        <!-- BRAND -->
         <a href="#home" class="d-flex items-center gap-3 text-white font-bold text-lg">
-          <img class="h-48 w-48" src="./assets/images/logo/britech-logo.png" alt="Britech College Logo" />
-
+          <img class="h-25 w-25" src="./assets/images/logo/britech-logo.png" alt="Britech College Logo" />
           <span class="text-white"> Britech College </span>
         </a>
-
-        <div class="d-flex items-center gap-2 flex-wrap">
-          <a href="#home" class="px-3 py-2 rounded-md text-white"> HOME </a>
-
-          <a href="#dashboard" class="px-3 py-2 rounded-md text-white"> DASHBOARD </a>
-
-          <a href="#services" class="px-3 py-2 rounded-md text-white"> SERVICES </a>
-
-          <a href="#features" class="px-3 py-2 rounded-md text-white"> FEATURES </a>
-
-          <a href="#about" class="px-3 py-2 rounded-md text-white"> ABOUT </a>
-
-          <a href="#contact" class="px-3 py-2 rounded-md text-white"> CONTACT </a>
+        <!-- NAVIGATION LINKS -->
+        <div class="d-flex items-center gap-2">
+          <a href="#home" class="px-3 py-2 text-white font-bold"> HOME </a>
+          <a href="#dashboard" class="px-3 py-2 text-white font-bold"> DASHBOARD </a>
+          <a href="#services" class="px-3 py-2 text-white font-bold"> SERVICES </a>
+          <a href="#features" class="px-3 py-2 text-white font-bold"> FEATURES </a>
+          <a href="#about" class="px-3 py-2 text-white font-bold"> ABOUT </a>
+          <a href="#contact" class="px-3 py-2 text-white font-bold"> CONTACT </a>
+        </div>
+        <!-- SIMPLE SEARCH -->
+        <div class="d-flex items-center gap-2">
+          <input
+            type="search"
+            class="px-3 py-2 rounded-md border border-white bg-white text-dark"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button type="button" class="px-3 py-2 rounded-md bg-white text-dark font-bold">🔍</button>
         </div>
       </nav>
     </header>
 
     <main>
       <!--  HERO  -->
-      <section id="home" class="bg-primary text-white px-10 py-24">
+      <section id="home" class="bg-primary text-white px-12 py-24">
         <div class="d-flex items-center justify-between flex-wrap gap-10">
-          <div class="w-66 landing-hero">
+          <div class="w-66">
             <p class="text-sm font-bold text-white mb-4">◇ &nbsp; TEACHER PORTAL ONLY</p>
 
             <h1 class="text-56 font-bold text-white">Manage Library Attendance With Ease.</h1>

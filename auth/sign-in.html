@@ -3,140 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teacher Log In | Library Attendance Monitoring System</title>
+
+    <title>Teacher Login | Library Attendance</title>
 
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/pages/log-in.css" />
   </head>
 
-  <body class="login-page">
-    <header class="landing-navbar">
-      <nav class="d-flex items-center justify-between px-10 py-5">
-        <!-- LOGO + NAVIGATION -->
+  <body class="bg-light text-dark">
+    <!--  LOGIN PAGE  -->
 
-        <div class="d-flex items-center gap-5">
-          <a href="../index.html" class="logo d-flex items-center" aria-label="Home">
-            <img
-              class="d-flex items-center h-25 w-25"
-              src="../assets/images/logo/britech-logo.png"
-              alt="Britech College Logo"
-            />
+    <main class="min-h-screen d-flex items-center justify-center px-32 py-20">
+      <div class="w-100 max-w-448">
+        <!--  LOGO / BRAND  -->
+
+        <div class="text-center mb-8">
+          <a href="../index.html" class="d-inline-flex items-center justify-center">
+            <img class="h-64 w-64" src="../assets/images/logo/britech-logo.png" alt="Britech College Logo" />
           </a>
 
-          <!-- NAVIGATION LINKS -->
+          <p class="text-xs font-bold text-primary mt-5">BRITECH COLLEGE</p>
 
-          <div class="d-flex items-center gap-2">
-            <a href="../index.html#home" class="nav-link"> HOME </a>
+          <h1 class="text-32 font-bold mt-2">Library Attendance</h1>
 
-            <a href="../index.html#dashboard" class="nav-link"> DASHBOARD </a>
-
-            <a href="../index.html#services" class="nav-link"> SERVICES </a>
-
-            <a href="../index.html#features" class="nav-link"> FEATURES </a>
-
-            <a href="../index.html#about" class="nav-link"> ABOUT US </a>
-
-            <a href="../index.html#contact" class="nav-link"> CONTACT </a>
-          </div>
+          <p class="text-sm text-gray mt-2">Teacher Portal</p>
         </div>
 
-        <!-- SEARCH -->
+        <!--  LOGIN CARD  -->
 
-        <div class="search-container">
-          <span class="search-icon"> 🔍 </span>
+        <section class="p-8 rounded-2xl border-2 border-dark bg-white shadow-lg">
+          <!-- LOGIN HEADER -->
 
-          <input type="search" class="search-bar" placeholder="Search" aria-label="Search" />
+          <div class="mb-6">
+            <p class="text-xs font-bold text-primary">TEACHER ACCESS</p>
 
-          <button type="button" class="search-button" aria-label="Search">→</button>
-        </div>
-      </nav>
-    </header>
+            <h2 class="text-24 font-bold mt-2">Welcome Back</h2>
 
-    <!-- SIGN IN CONTENT  -->
-
-    <main class="sign-in-main">
-      <section class="sign-in-wrapper">
-        <!-- LEFT SIDE -->
-
-        <div class="sign-in-intro">
-          <p class="portal-label">◈ &nbsp; TEACHER PORTAL ONLY</p>
-
-          <h1>
-            Welcome<br />
-            Back.
-          </h1>
-
-          <p class="sign-in-description">
-            Sign in to access the Library Attendance Monitoring System and manage student attendance with ease.
-          </p>
-
-          <a href="../index.html" class="outline-button"> ← Back to Home </a>
-        </div>
-
-        <!-- RIGHT SIDE -->
-
-        <div class="sign-in-card">
-          <!-- HEADING -->
-
-          <div class="sign-in-heading">
-            <div class="sign-in-icon">🔐</div>
-
-            <div>
-              <p class="sign-in-label">TEACHER LOGIN</p>
-
-              <h2>Sign In</h2>
-            </div>
+            <p class="text-sm text-gray mt-2">Sign in to manage library attendance records.</p>
           </div>
 
-          <!-- FORM -->
+          <!--  LOGIN FORM  -->
 
-          <form class="sign-in-form" id="signInForm">
+          <form action="#" method="post">
             <!-- EMAIL -->
 
-            <div class="form-group">
-              <label for="email"> Email Address </label>
+            <div class="mb-5">
+              <label for="email" class="d-block text-sm font-bold mb-2"> Email Address </label>
 
-              <input type="email" id="email" name="email" placeholder="Enter your email" required />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                required
+                class="w-100 px-4 py-3 rounded-md border-2 border-dark bg-light text-dark"
+              />
             </div>
 
             <!-- PASSWORD -->
 
-            <div class="form-group">
-              <div class="password-heading">
-                <label for="password"> Password </label>
+            <div class="mb-5">
+              <div class="d-flex items-center justify-between mb-2">
+                <label for="password" class="text-sm font-bold"> Password </label>
 
-                <a href="#" onclick="forgotPassword(event)"> Forgot password? </a>
+                <a href="#" class="text-xs font-bold text-primary"> Forgot Password? </a>
               </div>
 
-              <div class="password-wrapper">
-                <input type="password" id="password" name="password" placeholder="Enter your password" required />
-
-                <button type="button" id="togglePassword" aria-label="Show password">👁</button>
-              </div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+                class="w-100 px-4 py-3 rounded-md border-2 border-dark bg-light text-dark"
+              />
             </div>
 
             <!-- REMEMBER ME -->
 
-            <label class="remember-account">
-              <input type="checkbox" id="remember" />
+            <div class="d-flex items-center gap-2 mb-6">
+              <input id="remember" name="remember" type="checkbox" />
 
-              <span> Remember me </span>
-            </label>
+              <label for="remember" class="text-sm text-gray"> Remember me </label>
+            </div>
 
             <!-- SIGN IN BUTTON -->
 
-            <button type="submit" class="sign-in-button">🔒 &nbsp; Sign In</button>
-
-            <!-- MESSAGE -->
-
-            <p id="signInMessage" class="sign-in-message"></p>
+            <button
+              type="submit"
+              class="w-100 px-5 py-4 rounded-md border-2 border-dark bg-primary text-white font-bold"
+            >
+              🔐 &nbsp; Sign In
+            </button>
           </form>
 
-          <!-- SECURITY -->
+          <!--  SECURITY NOTICE  -->
 
-          <div class="security-note">🔒 &nbsp; This portal is for authorized teachers and school personnel only.</div>
+          <div class="mt-6 p-4 rounded-md border-2 border-dark bg-light">
+            <p class="text-xs text-gray text-center">🔒 This portal is restricted to authorized teachers.</p>
+          </div>
+        </section>
+
+        <!--  BACK TO HOME  -->
+
+        <div class="text-center mt-6">
+          <a href="../index.html" class="text-sm font-bold text-dark"> ← Back to Home </a>
         </div>
-      </section>
+
+        <!--  FOOTER  -->
+
+        <p class="text-xs text-gray text-center mt-8">© 2026 Library Attendance Monitoring System</p>
+      </div>
     </main>
   </body>
 </html>
