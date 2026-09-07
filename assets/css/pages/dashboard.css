@@ -1,0 +1,87 @@
+.dashboard-header {
+  width: 9px;
+  height: 9px;
+}
+
+.date-card {
+  min-width: 190px;
+}
+
+.side-bar {
+  width: 210px;
+}
+
+.sidebar-title {
+  width: 32px;
+  height: 32px;
+}
+
+.stats-card {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.visitors {
+  border-top: 4px solid var(--color-primary);
+}
+
+.visitor-style {
+  width: 42px;
+  height: 42px;
+}
+
+.checked-in {
+  border-top: 4px solid var(--color-secondary);
+}
+
+.checked-in-style {
+  width: 42px;
+  height: 42px;
+}
+
+.checked-out {
+  border-top: 4px solid var(--color-accent);
+}
+
+.checked-out-style {
+  width: 42px;
+  height: 42px;
+}
+
+.average {
+  border-top: 4px solid var(--color-dark);
+}
+
+.average-style {
+  width: 42px;
+  height: 42px;
+}
+
+.graph {
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(320px, 0.8fr);
+}
+
+.bottom-style {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.manage {
+  width: 45px;
+  height: 45px;
+  color: var(--color-primary);
+}
+
+.attendance {
+  width: 45px;
+  height: 45px;
+}
+
+.reports {
+  width: 45px;
+  height: 45px;
+}
+
+.students {
+  opacity: 0.8;
+}

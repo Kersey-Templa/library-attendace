@@ -6,6 +6,7 @@ const path = require("path");
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const db = require("./config/database.js");
+const authRoutes = require("./routes/auth-routes.js");
 
 const app = express();
 
@@ -181,6 +182,8 @@ app.get("/api/health/db", async (req, res) => {
     });
   }
 });
+
+app.use("/api", authRoutes);
 
 // ============================================================
 // HOME PAGE
