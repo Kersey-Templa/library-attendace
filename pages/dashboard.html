@@ -11,476 +11,477 @@
   </head>
 
   <body class="bg-light">
-    <header class="bg-dark border-b border-dark position-fixed w-100">
-      <nav class="d-flex items-center justify-between px-10 py-3">
-        <!-- BRAND -->
-        <a href="../index.html #home" class="d-flex items-center gap-3 text-white font-bold text-lg">
-          <img class="h-25 w-25" src="../assets/images/logo/britech-logo.png" alt="Britech College Logo" />
-          <span class="text-white"> Britech College </span>
-        </a>
-        <!-- NAVIGATION LINKS -->
-        <div class="d-flex items-center gap-2">
-          <a href="../index.html #home" class="px-3 py-2 text-white font-bold"> HOME </a>
-          <a href="../index.html #dashboard" class="px-3 py-2 text-white font-bold"> DASHBOARD </a>
-          <a href="../index.html #services" class="px-3 py-2 text-white font-bold"> SERVICES </a>
-          <a href="../index.html #features" class="px-3 py-2 text-white font-bold"> FEATURES </a>
-          <a href="../index.html #about" class="px-3 py-2 text-white font-bold"> ABOUT </a>
-          <a href="../index.html #contact" class="px-3 py-2 text-white font-bold"> CONTACT </a>
-        </div>
-        <!-- SIMPLE SEARCH -->
-        <div class="d-flex items-center gap-2">
-          <input
-            type="search"
-            class="px-3 py-2 rounded-md border border-white bg-white text-dark"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </div>
-      </nav>
-    </header>
-    <!-- dashboard -->
+    <main class="dashboard-shell px-8 py-8">
+      <section class="bg-white radius-xl shadow-sm overflow-hidden">
+        <div class="d-flex dashboard-main">
+          <!-- SIDEBAR  -->
 
-    <main class="py-10 px-16 pt-32">
-      <!-- DASHBOARD HEADER -->
+          <aside class="bg-light p-8 border-r flex-shrink-0 dashboard-sidebar" style="width: 230px">
+            <!-- LOGO / TITLE -->
 
-      <section class="d-flex items-center justify-between gap-5 mb-8">
-        <div>
-          <div class="d-flex items-center gap-2 mb-3">
-            <span class="bg-primary rounded-full dashboard-header d-inline-block"></span>
-
-            <p class="text-xs font-bold text-primary">◇ &nbsp; TEACHER PORTAL ONLY</p>
-          </div>
-
-          <h1 class="text-40 font-extrabold text-dark">DASHBOARD</h1>
-
-          <p class="text-sm text-gray mt-3">Monitor your library attendance and student activity.</p>
-        </div>
-
-        <!-- DATE CARD -->
-
-        <div class="bg-white border border-primary rounded-xl p-5 shadow-sm date-card">
-          <p class="text-xs text-primary font-bold">LIBRARY</p>
-
-          <p class="text-xs text-gray mt-2">TODAY</p>
-
-          <strong id="todayDate" class="text-16 font-bold mt-2 d-block"> Loading... </strong>
-        </div>
-      </section>
-
-      <!-- =================================================
-             DASHBOARD WRA -->
-
-      <section class="bg-white rounded-2xl shadow-lg overflow-hidden border">
-        <div class="d-flex">
-          <!-- SIDEBAR -->
-
-          <aside class="bg-light p-5 border-r flex-shrink-0 side-bar">
-            <!-- SIDEBAR TITLE -->
-
-            <div class="d-flex items-center gap-2 mb-6">
-              <div class="bg-primary text-white rounded-md d-flex items-center justify-center sidebar-title">◈</div>
+            <div class="d-flex items-center gap-3 mb-8">
+              <div
+                class="bg-primary text-white radius-md d-flex items-center justify-center"
+                style="width: 42px; height: 42px"
+              >
+                ◈
+              </div>
 
               <div>
-                <p class="text-xs font-bold">LIBRARY</p>
+                <p class="text-sm font-extrabold text-dark">LIBRARY</p>
 
                 <p class="text-xs text-gray">MANAGEMENT</p>
               </div>
             </div>
 
+            <!-- NAVIGATION LABEL -->
+
+            <p class="text-xs text-gray font-bold mb-3">MAIN MENU</p>
+
             <!-- SIDEBAR LINKS -->
 
             <div class="d-flex flex-column gap-2">
-              <!-- DASHBOARD -->
-
               <a
-                href="dashboard.html"
-                class="d-flex items-center gap-3 p-3 rounded-md bg-primary text-white text-xs font-bold"
+                href="./dashboard.html"
+                class="dashboard-link d-flex items-center gap-3 p-3 radius-md bg-primary text-white text-xs font-bold"
               >
-                <span> ⌂ </span>
-
+                <span>⌂</span>
                 DASHBOARD
               </a>
 
-              <!-- ATTENDANCE -->
-
-              <a href="#attendance" class="d-flex items-center gap-3 p-3 rounded-md text-xs">
-                <span> ☑ </span>
-
+              <a
+                href="#attendance"
+                class="dashboard-link d-flex items-center gap-3 p-3 radius-md text-xs font-semibold"
+              >
+                <span>☑</span>
                 ATTENDANCE
               </a>
 
-              <!-- STUDENTS -->
-
-              <a href="#students" class="d-flex items-center gap-3 p-3 rounded-md text-xs">
-                <span> ♧ </span>
-
+              <a href="#students" class="dashboard-link d-flex items-center gap-3 p-3 radius-md text-xs font-semibold">
+                <span>♧</span>
                 STUDENTS
               </a>
 
-              <!-- RECORDS -->
-
-              <a href="#records" class="d-flex items-center gap-3 p-3 rounded-md text-xs">
-                <span> ▣ </span>
-
+              <a href="#records" class="dashboard-link d-flex items-center gap-3 p-3 radius-md text-xs font-semibold">
+                <span>▣</span>
                 RECORDS
               </a>
 
-              <!-- REPORTS -->
-
-              <a href="#reports" class="d-flex items-center gap-3 p-3 rounded-md text-xs">
-                <span> ▤ </span>
-
+              <a href="#reports" class="dashboard-link d-flex items-center gap-3 p-3 radius-md text-xs font-semibold">
+                <span>▤</span>
                 REPORTS
               </a>
 
-              <!-- SETTINGS -->
-
-              <a href="#settings" class="d-flex items-center gap-3 p-3 rounded-md text-xs">
-                <span> ⚙ </span>
-
+              <a href="#settings" class="dashboard-link d-flex items-center gap-3 p-3 radius-md text-xs font-semibold">
+                <span>⚙</span>
                 SETTINGS
               </a>
             </div>
 
-            <!-- SIDEBAR BOTTOM CARD -->
+            <!-- SIDEBAR BOTTOM -->
 
-            <div class="bg-white border rounded-lg p-4 mt-8">
-              <p class="text-xs font-bold text-primary">QUICK TIP</p>
+            <div class="mt-10 pt-6 border-t">
+              <p class="text-xs text-gray font-bold mb-3">SYSTEM</p>
 
-              <p class="text-xs text-gray mt-2">Keep attendance records updated throughout the day.</p>
+              <div class="bg-white radius-lg border p-4">
+                <p class="text-xs font-bold text-dark">Library Portal</p>
+
+                <p class="text-xs text-gray mt-2">Teacher access only</p>
+
+                <div class="d-flex items-center gap-2 mt-3">
+                  <span class="bg-primary radius-full" style="width: 8px; height: 8px"></span>
+
+                  <span class="text-xs text-gray"> System Online </span>
+                </div>
+              </div>
             </div>
           </aside>
 
-          <!-- CONTENT -->
+          <!-- MAIN CONTENT  -->
 
-          <div class="flex-1 p-6">
-            <!-- STAT CARDS  -->
+          <div class="flex-1 dashboard-content">
+            <div class="p-8">
+              <!-- HEADER  -->
 
-            <section class="d-grid gap-4 stats-card">
-              <!-- VISITORS -->
+              <header class="d-flex items-center justify-between gap-5 mb-8">
+                <div>
+                  <p class="text-xs text-primary font-bold">LIBRARY MANAGEMENT SYSTEM</p>
 
-              <article class="bg-white border rounded-xl p-5 shadow-sm visitors">
-                <div class="d-flex items-center justify-between mb-5">
-                  <div class="bg-light text-primary rounded-lg d-flex items-center justify-center visitor-style">♧</div>
+                  <h1 class="text-32 font-extrabold mt-2">Dashboard</h1>
 
-                  <span class="text-xs text-primary font-bold"> TODAY </span>
+                  <p class="text-sm text-gray mt-2">Monitor library attendance and student activity.</p>
                 </div>
 
-                <p class="text-xs text-gray font-semibold">VISITORS</p>
+                <!-- DATE -->
 
-                <h2 class="text-32 font-extrabold mt-2">128</h2>
+                <div class="bg-light border radius-lg px-5 py-4">
+                  <p class="text-xs text-gray font-bold">TODAY</p>
 
-                <p class="text-xs text-gray mt-2">Total library visits</p>
-              </article>
-
-              <!-- CHECKED IN -->
-
-              <article class="bg-white border rounded-xl p-5 shadow-sm checked-in">
-                <div class="d-flex items-center justify-between mb-5">
-                  <div class="bg-light text-secondary rounded-lg d-flex items-center justify-center checked-in-style">
-                    ✓
-                  </div>
-
-                  <span class="text-xs text-secondary font-bold"> LIVE </span>
+                  <strong id="todayDate" class="text-sm font-bold text-dark d-block mt-2"> Loading... </strong>
                 </div>
+              </header>
 
-                <p class="text-xs text-gray font-semibold">CHECKED IN</p>
+              <!-- =========================
+                   WELCOME CARD
+              ========================== -->
 
-                <h2 class="text-32 font-extrabold mt-2">76</h2>
-
-                <p class="text-xs text-gray mt-2">Currently inside</p>
-              </article>
-
-              <!-- CHECKED OUT -->
-
-              <article class="bg-white border rounded-xl p-5 shadow-sm checked-out">
-                <div class="d-flex items-center justify-between mb-5">
-                  <div class="bg-light text-accent rounded-lg d-flex items-center justify-center checked-out-style">
-                    ↪
-                  </div>
-
-                  <span class="text-xs text-accent font-bold"> TODAY </span>
-                </div>
-
-                <p class="text-xs text-gray font-semibold">CHECKED OUT</p>
-
-                <h2 class="text-32 font-extrabold mt-2">52</h2>
-
-                <p class="text-xs text-gray mt-2">Completed visits</p>
-              </article>
-
-              <!-- AVERAGE -->
-
-              <article class="bg-white border rounded-xl p-5 shadow-sm average">
-                <div class="d-flex items-center justify-between mb-5">
-                  <div class="bg-light text-dark rounded-lg d-flex items-center justify-center average-style">≈</div>
-
-                  <span class="text-xs text-gray font-bold"> DAILY </span>
-                </div>
-
-                <p class="text-xs text-gray font-semibold">AVERAGE</p>
-
-                <h2 class="text-32 font-extrabold mt-2">104</h2>
-
-                <p class="text-xs text-gray mt-2">Daily visitors</p>
-              </article>
-            </section>
-
-            <!--     GRAPH + RECENT ATTENDANCE -->
-
-            <section class="d-grid gap-5 mt-6 graph">
-              <!--         GRAPH CARD -->
-
-              <article class="bg-white border rounded-xl shadow-sm overflow-hidden">
-                <!-- HEADER -->
-
-                <div class="d-flex items-center justify-between p-5 border-b">
+              <section>
+                <div class="d-flex items-center justify-between gap-5">
                   <div>
-                    <p class="text-xs text-primary font-bold">ATTENDANCE ACTIVITY</p>
+                    <p class="text-xs text-white font-bold">TEACHER PORTAL</p>
 
-                    <h2 class="text-16 font-bold mt-2">VISITORS OVER TIME</h2>
+                    <h2 class="text-2xl font-extrabold text-white mt-2">Welcome to the Library Dashboard</h2>
+
+                    <p class="text-sm text-white mt-2" style="opacity: 0.85">
+                      Keep track of student visits, attendance, and library records in one place.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- =========================
+                  STATISTICS
+              ========================== -->
+
+              <section class="d-grid gap-4 stats-grid">
+                <!-- VISITORS -->
+
+                <article
+                  class="stat-card bg-white border radius-xl p-5 shadow-sm"
+                  style="border-top: 4px solid var(--color-primary)"
+                >
+                  <div class="d-flex items-center justify-between mb-5">
+                    <div class="stat-icon bg-light text-primary radius-lg d-flex items-center justify-center">♧</div>
+
+                    <span class="text-xs text-primary font-bold"> TODAY </span>
                   </div>
 
-                  <span class="bg-light text-primary rounded-full p-2 text-xs font-bold"> TODAY </span>
-                </div>
+                  <p class="text-xs text-gray font-semibold">TOTAL VISITORS</p>
 
+                  <h2 class="text-32 font-extrabold mt-2">128</h2>
+
+                  <p class="text-xs text-gray mt-2">Total library visits</p>
+                </article>
+
+                <!-- CHECKED IN -->
+
+                <article
+                  class="stat-card bg-white border radius-xl p-5 shadow-sm"
+                  style="border-top: 4px solid var(--color-secondary)"
+                >
+                  <div class="d-flex items-center justify-between mb-5">
+                    <div class="stat-icon bg-light text-secondary radius-lg d-flex items-center justify-center">✓</div>
+
+                    <span class="text-xs text-secondary font-bold"> LIVE </span>
+                  </div>
+
+                  <p class="text-xs text-gray font-semibold">CHECKED IN</p>
+
+                  <h2 class="text-32 font-extrabold mt-2">76</h2>
+
+                  <p class="text-xs text-gray mt-2">Currently inside</p>
+                </article>
+
+                <!-- CHECKED OUT -->
+
+                <article
+                  class="stat-card bg-white border radius-xl p-5 shadow-sm"
+                  style="border-top: 4px solid var(--color-accent)"
+                >
+                  <div class="d-flex items-center justify-between mb-5">
+                    <div class="stat-icon bg-light text-accent radius-lg d-flex items-center justify-center">↪</div>
+
+                    <span class="text-xs text-accent font-bold"> TODAY </span>
+                  </div>
+
+                  <p class="text-xs text-gray font-semibold">CHECKED OUT</p>
+
+                  <h2 class="text-32 font-extrabold mt-2">52</h2>
+
+                  <p class="text-xs text-gray mt-2">Completed visits</p>
+                </article>
+
+                <!-- AVERAGE -->
+
+                <article
+                  class="stat-card bg-white border radius-xl p-5 shadow-sm"
+                  style="border-top: 4px solid var(--color-dark)"
+                >
+                  <div class="d-flex items-center justify-between mb-5">
+                    <div class="stat-icon bg-light text-dark radius-lg d-flex items-center justify-center">≈</div>
+
+                    <span class="text-xs text-gray font-bold"> DAILY </span>
+                  </div>
+
+                  <p class="text-xs text-gray font-semibold">AVERAGE</p>
+
+                  <h2 class="text-32 font-extrabold mt-2">104</h2>
+
+                  <p class="text-xs text-gray mt-2">Daily visitors</p>
+                </article>
+              </section>
+
+              <!-- =========================
+                   GRAPH + RECENT ATTENDANCE
+              ========================== -->
+
+              <section class="d-grid gap-5 mt-6 main-grid">
                 <!-- GRAPH -->
 
-                <div class="p-6">
-                  <div class="d-flex justify-between text-xs text-gray mb-3">
-                    <span> VISITORS </span>
+                <article class="bg-white border radius-xl shadow-sm overflow-hidden">
+                  <div class="d-flex items-center justify-between p-5 border-b">
+                    <div>
+                      <p class="text-xs text-primary font-bold">ATTENDANCE ACTIVITY</p>
 
-                    <span> 8 AM — 1 PM </span>
+                      <h2 class="text-16 font-bold mt-2">Visitors Over Time</h2>
+                    </div>
+
+                    <span class="bg-light text-primary radius-full px-3 py-2 text-xs font-bold"> TODAY </span>
                   </div>
 
-                  <svg viewBox="0 0 700 300" width="100%" height="300" preserveAspectRatio="none">
-                    <!-- GRID LINES -->
+                  <div class="p-6">
+                    <div class="d-flex justify-between text-xs text-gray mb-3">
+                      <span>VISITORS</span>
+                      <span>8 AM — 1 PM</span>
+                    </div>
 
-                    <line x1="35" y1="40" x2="680" y2="40" stroke="currentColor" opacity=".08" />
+                    <svg viewBox="0 0 700 300" width="100%" height="300" preserveAspectRatio="none">
+                      <!-- GRID -->
 
-                    <line x1="35" y1="90" x2="680" y2="90" stroke="currentColor" opacity=".08" />
+                      <line x1="35" y1="40" x2="680" y2="40" stroke="currentColor" opacity=".08" />
 
-                    <line x1="35" y1="140" x2="680" y2="140" stroke="currentColor" opacity=".08" />
+                      <line x1="35" y1="90" x2="680" y2="90" stroke="currentColor" opacity=".08" />
 
-                    <line x1="35" y1="190" x2="680" y2="190" stroke="currentColor" opacity=".08" />
+                      <line x1="35" y1="140" x2="680" y2="140" stroke="currentColor" opacity=".08" />
 
-                    <line x1="35" y1="240" x2="680" y2="240" stroke="currentColor" opacity=".08" />
+                      <line x1="35" y1="190" x2="680" y2="190" stroke="currentColor" opacity=".08" />
 
-                    <!-- GRAPH -->
+                      <line x1="35" y1="240" x2="680" y2="240" stroke="currentColor" opacity=".08" />
 
-                    <polyline
-                      points="
-                                            35,235
-                                            135,135
-                                            235,195
-                                            335,70
-                                            435,145
-                                            535,100
-                                            675,30
-                                        "
-                      fill="none"
-                      stroke="var(--color-primary)"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                      <!-- LINE -->
 
-                    <!-- POINTS -->
+                      <polyline
+                        points="
+                          35,235
+                          135,135
+                          235,195
+                          335,70
+                          435,145
+                          535,100
+                          675,30
+                        "
+                        fill="none"
+                        stroke="var(--color-primary)"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
 
-                    <circle cx="35" cy="235" r="7" fill="var(--color-primary)" />
+                      <!-- POINTS -->
 
-                    <circle cx="135" cy="135" r="7" fill="var(--color-primary)" />
+                      <circle cx="35" cy="235" r="7" fill="var(--color-primary)" />
 
-                    <circle cx="235" cy="195" r="7" fill="var(--color-primary)" />
+                      <circle cx="135" cy="135" r="7" fill="var(--color-primary)" />
 
-                    <circle cx="335" cy="70" r="7" fill="var(--color-primary)" />
+                      <circle cx="235" cy="195" r="7" fill="var(--color-primary)" />
 
-                    <circle cx="435" cy="145" r="7" fill="var(--color-primary)" />
+                      <circle cx="335" cy="70" r="7" fill="var(--color-primary)" />
 
-                    <circle cx="535" cy="100" r="7" fill="var(--color-primary)" />
+                      <circle cx="435" cy="145" r="7" fill="var(--color-primary)" />
 
-                    <circle cx="675" cy="30" r="7" fill="var(--color-primary)" />
-                  </svg>
+                      <circle cx="535" cy="100" r="7" fill="var(--color-primary)" />
 
-                  <!-- TIME -->
+                      <circle cx="675" cy="30" r="7" fill="var(--color-primary)" />
+                    </svg>
 
-                  <div class="d-flex justify-between text-xs text-gray mt-2">
-                    <span>8 AM</span>
-                    <span>9 AM</span>
-                    <span>10 AM</span>
-                    <span>11 AM</span>
-                    <span>12 NN</span>
-                    <span>1 PM</span>
+                    <!-- TIME -->
+
+                    <div class="d-flex justify-between text-xs text-gray mt-2">
+                      <span>8 AM</span>
+                      <span>9 AM</span>
+                      <span>10 AM</span>
+                      <span>11 AM</span>
+                      <span>12 NN</span>
+                      <span>1 PM</span>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
 
-              <!--         RECENT ATTENDANCE
-       -->
+                <!-- RECENT ATTENDANCE -->
 
-              <article class="bg-white border rounded-xl shadow-sm overflow-hidden">
-                <!-- HEADER -->
+                <article class="bg-white border radius-xl shadow-sm overflow-hidden">
+                  <div class="d-flex items-center justify-between p-5 border-b">
+                    <div>
+                      <p class="text-xs text-primary font-bold">ACTIVITY</p>
 
-                <div class="d-flex items-center justify-between p-5 border-b">
-                  <div>
-                    <p class="text-xs text-primary font-bold">ACTIVITY</p>
+                      <h2 class="text-16 font-bold mt-2">Recent Attendance</h2>
+                    </div>
 
-                    <h2 class="text-16 font-bold mt-2">RECENT ATTENDANCE</h2>
+                    <span class="text-xs text-gray"> TODAY </span>
                   </div>
 
-                  <span class="text-xs text-gray"> TODAY </span>
+                  <div class="overflow-auto">
+                    <table class="w-100">
+                      <thead>
+                        <tr class="bg-light">
+                          <th class="p-3 text-xs font-bold text-left border-b">STUDENT</th>
+
+                          <th class="p-3 text-xs font-bold text-left border-b">STATUS</th>
+
+                          <th class="p-3 text-xs font-bold text-left border-b">TIME</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="p-3 text-xs font-semibold border-b">Kersey</td>
+
+                          <td class="p-3 text-xs border-b">
+                            <span class="bg-light text-primary radius-full px-2 py-1 font-bold"> IN </span>
+                          </td>
+
+                          <td class="p-3 text-xs border-b">8:05 AM</td>
+                        </tr>
+
+                        <tr>
+                          <td class="p-3 text-xs font-semibold border-b">Regie</td>
+
+                          <td class="p-3 text-xs border-b">
+                            <span class="bg-light text-primary radius-full px-2 py-1 font-bold"> IN </span>
+                          </td>
+
+                          <td class="p-3 text-xs border-b">8:07 AM</td>
+                        </tr>
+
+                        <tr>
+                          <td class="p-3 text-xs font-semibold border-b">Allaiza</td>
+
+                          <td class="p-3 text-xs border-b">
+                            <span class="bg-light text-accent radius-full px-2 py-1 font-bold"> OUT </span>
+                          </td>
+
+                          <td class="p-3 text-xs border-b">9:10 AM</td>
+                        </tr>
+
+                        <tr>
+                          <td class="p-3 text-xs font-semibold border-b">Shane</td>
+
+                          <td class="p-3 text-xs border-b">
+                            <span class="bg-light text-primary radius-full px-2 py-1 font-bold"> IN </span>
+                          </td>
+
+                          <td class="p-3 text-xs border-b">9:44 AM</td>
+                        </tr>
+
+                        <tr>
+                          <td class="p-3 text-xs font-semibold border-b">Luke</td>
+
+                          <td class="p-3 text-xs border-b">
+                            <span class="bg-light text-primary radius-full px-2 py-1 font-bold"> IN </span>
+                          </td>
+
+                          <td class="p-3 text-xs border-b">10:23 AM</td>
+                        </tr>
+
+                        <tr>
+                          <td class="p-3 text-xs font-semibold">Jhon Paul</td>
+
+                          <td class="p-3 text-xs">
+                            <span class="bg-light text-accent radius-full px-2 py-1 font-bold"> OUT </span>
+                          </td>
+
+                          <td class="p-3 text-xs">10:30 AM</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </article>
+              </section>
+
+              <!-- =========================
+                   QUICK ACTIONS
+              ========================== -->
+
+              <section class="mt-8">
+                <div class="mb-4">
+                  <p class="text-xs text-primary font-bold">QUICK ACCESS</p>
+
+                  <h2 class="text-16 font-bold mt-2">Manage Library</h2>
                 </div>
 
-                <!-- TABLE -->
+                <div class="d-grid gap-4 quick-grid">
+                  <!-- STUDENTS -->
 
-                <div class="overflow-auto">
-                  <table class="w-100 border-collapse">
-                    <thead>
-                      <tr class="bg-light">
-                        <th class="p-3 text-xs font-bold text-left border-b">STUDENT</th>
+                  <a
+                    href="#students"
+                    class="quick-card d-flex items-center gap-4 bg-primary text-white radius-xl p-5 shadow"
+                  >
+                    <div class="action-icon d-flex items-center justify-center radius-full bg-white text-primary">
+                      ♧
+                    </div>
 
-                        <th class="p-3 text-xs font-bold text-left border-b">STATUS</th>
+                    <div>
+                      <p class="text-sm font-bold">STUDENTS</p>
 
-                        <th class="p-3 text-xs font-bold text-left border-b">TIME</th>
-                      </tr>
-                    </thead>
+                      <p class="text-xs mt-1" style="opacity: 0.8">Manage student records</p>
+                    </div>
+                  </a>
 
-                    <tbody>
-                      <tr>
-                        <td class="p-3 text-xs font-semibold border-b">Kersey</td>
+                  <!-- ATTENDANCE -->
 
-                        <td class="p-3 text-xs border-b">
-                          <span class="bg-light text-primary rounded-full p-2 font-bold"> IN </span>
-                        </td>
+                  <a
+                    href="#attendance"
+                    class="quick-card d-flex items-center gap-4 bg-white border border-primary radius-xl p-5 shadow-sm"
+                  >
+                    <div class="action-icon d-flex items-center justify-center radius-full bg-light text-primary">
+                      ✓
+                    </div>
 
-                        <td class="p-3 text-xs border-b">8:05 AM</td>
-                      </tr>
+                    <div>
+                      <p class="text-sm font-bold">ATTENDANCE</p>
 
-                      <tr>
-                        <td class="p-3 text-xs font-semibold border-b">Regie</td>
+                      <p class="text-xs text-gray mt-1">Record library visits</p>
+                    </div>
+                  </a>
 
-                        <td class="p-3 text-xs border-b">
-                          <span class="bg-light text-primary rounded-full p-2 font-bold"> IN </span>
-                        </td>
+                  <!-- REPORTS -->
 
-                        <td class="p-3 text-xs border-b">8:07 AM</td>
-                      </tr>
+                  <a
+                    href="#reports"
+                    class="quick-card d-flex items-center gap-4 bg-white border radius-xl p-5 shadow-sm"
+                  >
+                    <div class="action-icon d-flex items-center justify-center radius-full bg-light text-primary">
+                      ▤
+                    </div>
 
-                      <tr>
-                        <td class="p-3 text-xs font-semibold border-b">Jhon Paul</td>
+                    <div>
+                      <p class="text-sm font-bold">REPORTS</p>
 
-                        <td class="p-3 text-xs border-b">
-                          <span class="bg-light text-accent rounded-full p-2 font-bold"> OUT </span>
-                        </td>
-
-                        <td class="p-3 text-xs border-b">9:10 AM</td>
-                      </tr>
-
-                      <tr>
-                        <td class="p-3 text-xs font-semibold border-b">Shane</td>
-
-                        <td class="p-3 text-xs border-b">
-                          <span class="bg-light text-primary rounded-full p-2 font-bold"> IN </span>
-                        </td>
-
-                        <td class="p-3 text-xs border-b">9:44 AM</td>
-                      </tr>
-
-                      <tr>
-                        <td class="p-3 text-xs font-semibold border-b">Luke</td>
-
-                        <td class="p-3 text-xs border-b">
-                          <span class="bg-light text-primary rounded-full p-2 font-bold"> IN </span>
-                        </td>
-
-                        <td class="p-3 text-xs border-b">10:23 AM</td>
-                      </tr>
-
-                      <tr>
-                        <td class="p-3 text-xs font-semibold">Jhon Paul</td>
-
-                        <td class="p-3 text-xs">
-                          <span class="bg-light text-accent rounded-full p-2 font-bold"> OUT </span>
-                        </td>
-
-                        <td class="p-3 text-xs">10:30 AM</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                      <p class="text-xs text-gray mt-1">View attendance reports</p>
+                    </div>
+                  </a>
                 </div>
-              </article>
-            </section>
-
-            <!--     BOTTOM QUICK ACTIONS
-   -->
-
-            <section class="d-grid gap-4 mt-6">
-              <!-- MANAGE STUDENTS -->
-
-              <a href="#students" class="d-flex items-center gap-4 bg-primary text-white rounded-xl p-5 shadow">
-                <div class="d-flex items-center justify-center rounded-full bg-white manage">♧</div>
-
-                <div>
-                  <p class="text-xs font-bold">STUDENTS</p>
-
-                  <p class="text-xs students">Manage student records</p>
-                </div>
-              </a>
-
-              <!-- ATTENDANCE -->
-
-              <a
-                href="#attendance"
-                class="d-flex items-center gap-4 bg-white border border-primary rounded-xl p-5 shadow-sm"
-              >
-                <div class="d-flex items-center justify-center rounded-full bg-light text-primary attendance">✓</div>
-
-                <div>
-                  <p class="text-xs font-bold">ATTENDANCE</p>
-
-                  <p class="text-xs text-gray mt-1">Record library visits</p>
-                </div>
-              </a>
-
-              <!-- REPORTS -->
-
-              <a href="#reports" class="d-flex items-center gap-4 bg-white border rounded-xl p-5 shadow-sm">
-                <div class="d-flex items-center justify-center rounded-full bg-light text-primary reports">▤</div>
-
-                <div>
-                  <p class="text-xs font-bold">REPORTS</p>
-
-                  <p class="text-xs text-gray mt-1">View attendance reports</p>
-                </div>
-              </a>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- =========================
+           FOOTER
+      ========================== -->
+
+      <footer class="d-flex items-center justify-between gap-5 bg-white border-t p-6 mt-6">
+        <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
+
+        <div class="d-flex gap-4">
+          <a href="" class="text-xs font-semibold"> Privacy Policy </a>
+
+          <a href="" class="text-xs font-semibold"> Terms of Use </a>
+        </div>
+      </footer>
     </main>
 
-    <footer class="d-flex items-center justify-between gap-5 bg-white border-t p-6 mt-10">
-      <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
-
-      <div class="d-flex gap-4">
-        <a href="../index.html#privacy" class="text-xs font-semibold"> Privacy Policy </a>
-
-        <a href="../index.html#terms" class="text-xs font-semibold"> Terms of Use </a>
-      </div>
-    </footer>
-
-    <!-- date -->
-
-    <script>
-      const dateElement = document.getElementById("todayDate");
-
-      const today = new Date();
-
-      dateElement.textContent = today.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      });
-    </script>
+    <script src="../assets/js/pages/dashboard.js"></script>
   </body>
 </html>

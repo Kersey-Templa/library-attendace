@@ -85,3 +85,75 @@
 .students {
   opacity: 0.8;
 }
+
+/* Small dashboard-only improvements */
+.dashboard-shell {
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  min-width: 0;
+}
+
+.dashboard-sidebar {
+  min-height: calc(100vh - 48px);
+}
+
+.dashboard-content {
+  min-width: 0;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.main-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
+}
+
+.quick-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.action-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.dashboard-link {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dashboard-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.quick-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
