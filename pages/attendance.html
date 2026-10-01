@@ -139,7 +139,103 @@
         </div>
       </header>
 
-      <main class="p-10 d-flex flex-column gap-5 main-container__h-77"></main>
+      <!-- MAIN -->
+      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+        <!-- PAGE INFORMATION -->
+        <section class="d-flex items-center justify-between">
+          <div>
+            <p class="text-xs text-primary font-bold">ATTENDANCE RECORD</p>
+
+            <h2 class="text-xl font-bold mt-2">All Sections</h2>
+
+            <p class="text-sm text-gray mt-2">View today's attendance records for all students.</p>
+          </div>
+
+          <!-- DATE SELECTOR -->
+          <div class="d-flex items-center gap-3">
+            <label for="attendanceDate" class="text-xs text-gray font-bold"> DATE </label>
+
+            <input type="date" id="attendanceDate" class="input" />
+          </div>
+        </section>
+
+        <!-- ATTENDANCE TABLE -->
+        <section class="bg-white border rounded-xl shadow-md overflow-hidden">
+          <!-- TABLE HEADER -->
+          <div class="p-6 border-b d-flex items-center justify-between">
+            <div>
+              <p class="text-xs text-primary font-bold">ATTENDANCE TODAY</p>
+
+              <h2 class="text-lg font-bold mt-2">Student Attendance</h2>
+            </div>
+
+            <div class="d-flex items-center gap-3">
+              <span class="text-xs text-gray"> 0 Student </span>
+
+              <button type="button" class="btn-primary">
+                <span class="fa-solid fa-plus"></span>
+                Add Attendance
+              </button>
+            </div>
+          </div>
+
+          <!-- TABLE -->
+          <div class="table-wrapper">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>ID NUMBER</th>
+
+                  <th>NAME</th>
+
+                  <th>SECTION</th>
+
+                  <th>TIME IN</th>
+
+                  <th>TIME OUT</th>
+
+                  <th class="text-center">STATUS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>—</td>
+
+                  <td class="font-semibold">—</td>
+
+                  <td>—</td>
+
+                  <td>—</td>
+
+                  <td>—</td>
+
+                  <td class="text-center">
+                    <span class="btn-success"> — </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- TABLE FOOTER -->
+          <div class="p-5 bg-light border-t d-flex items-center justify-between">
+            <p class="text-xs text-gray">Showing today's attendance records</p>
+
+            <div class="d-flex items-center gap-2">
+              <span class="text-xs text-gray"> Present: </span>
+
+              <span class="text-xs font-bold"> 0 </span>
+
+              <span class="text-xs text-gray"> | </span>
+
+              <span class="text-xs text-gray"> Absent: </span>
+
+              <span class="text-xs font-bold"> 0 </span>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <footer class="pl-10 d-flex flex-row items-center footer__h-5">
         <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
