@@ -139,7 +139,95 @@
         </div>
       </header>
 
-      <main class="p-10 d-flex flex-column gap-5 main-container__h-77"></main>
+      <!-- REPORT CONTENT -->
+      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+        <!-- REPORT FILTERS -->
+        <section class="bg-white border radius-xl shadow-sm p-6">
+          <div class="mb-5">
+            <p class="text-xs text-primary font-bold">REPORT GENERATOR</p>
+
+            <h2 class="text-16 font-bold mt-2">Generate Attendance Report</h2>
+          </div>
+
+          <div class="d-flex items-end gap-5">
+            <!-- REPORT TYPE -->
+            <div class="flex-1">
+              <label for="reportType" class="label"> Report Type </label>
+
+              <select id="reportType" class="select mt-2">
+                <option value="attendance">Attendance</option>
+                <option value="violation">Violation</option>
+              </select>
+            </div>
+
+            <!-- FROM -->
+            <div class="flex-1">
+              <label for="fromDate" class="label"> From </label>
+
+              <input type="date" id="fromDate" class="input mt-2" />
+            </div>
+
+            <!-- TO -->
+            <div class="flex-1">
+              <label for="toDate" class="label"> To </label>
+
+              <input type="date" id="toDate" class="input mt-2" />
+            </div>
+
+            <!-- GENERATE -->
+            <div>
+              <button type="button" class="btn-primary">
+                <span class="fa-solid fa-chart-column"></span>
+                Generate Report
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- ATTENDANCE SUMMARY -->
+        <section class="bg-white border radius-xl shadow-sm overflow-hidden">
+          <div class="p-6 border-b d-flex items-center justify-between">
+            <div>
+              <p class="text-xs text-primary font-bold">ATTENDANCE SUMMARY</p>
+
+              <h2 class="text-16 font-bold mt-2">Attendance Summary</h2>
+            </div>
+          </div>
+
+          <!-- COMING SOON -->
+          <div class="p-12 d-flex flex-column justify-center items-center">
+            <p class="mt-12 text-gray">Coming Soon</p>
+          </div>
+        </section>
+        <!-- REPORT TOTALS -->
+        <section class="d-flex flex-row gap-5">
+          <!-- TOTAL VISITORS -->
+          <article class="flex-1 bg-white border radius-xl shadow-sm p-6">
+            <p class="text-xs text-gray font-bold">TOTAL VISITORS</p>
+
+            <h2 class="text-32 font-extrabold mt-2 text-primary">0</h2>
+
+            <p class="text-xs text-gray mt-2">Total recorded visitors</p>
+          </article>
+
+          <!-- CHECKED IN -->
+          <article class="flex-1 bg-white border radius-xl shadow-sm p-6">
+            <p class="text-xs text-gray font-bold">CHECKED IN</p>
+
+            <h2 class="text-32 font-extrabold mt-2 text-secondary">0</h2>
+
+            <p class="text-xs text-gray mt-2">Completed time-in records</p>
+          </article>
+
+          <!-- CHECKED OUT -->
+          <article class="flex-1 bg-white border radius-xl shadow-sm p-6">
+            <p class="text-xs text-gray font-bold">CHECKED OUT</p>
+
+            <h2 class="text-32 font-extrabold mt-2 text-accent">0</h2>
+
+            <p class="text-xs text-gray mt-2">Completed time-out records</p>
+          </article>
+        </section>
+      </main>
 
       <footer class="pl-10 d-flex flex-row items-center footer__h-5">
         <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
