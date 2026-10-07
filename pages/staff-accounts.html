@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library | Accounts</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/pages/accounts.css" />
+  </head>
+
+  <body class="w-screen h-screen d-flex flex-row bg-light">
+    <aside class="pl-5 py-10 w-384">
+      <div class="pr-5 h-100 d-flex flex-column border-light-gray border-r">
+        <!-- Logo -->
+        <div class="d-flex items-center gap-3">
+          <div class="w-64 h-auto">
+            <img class="w-100 h-100" src="../assets/images/logo/britech-logo.png" alt="BRITECH Logo" />
+          </div>
+
+          <div>
+            <p class="text-sm font-extrabold text-dark">LIBRARY</p>
+            <p class="text-xs text-gray">ATTENDANCE SYSTEM</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="mt-8 d-flex flex-1 flex-column gap-2">
+          <!-- Dashboard -->
+          <a href="./dashboard.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-shapes"></span>
+            Dashboard
+          </a>
+
+          <!-- Attendance -->
+          <a href="./attendance.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-clipboard-user"></span>
+            Attendance
+          </a>
+
+          <!-- Students -->
+          <a href="./students.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-users"></span>
+            Students
+          </a>
+
+          <!-- School -->
+          <div class="d-flex flex-column">
+            <a id="schoolToggle" href="#school" class="btn-tertiary btn-nav__sub-item">
+              <div>
+                <span class="mr-1 fa-solid fa-school"></span>
+                School
+              </div>
+
+              <i id="schoolChevron" class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div id="schoolMenu" class="d-none flex-column">
+              <a class="ml-12 btn-tertiary btn-nav" href="#school-years">School Year</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="#grade-strands">Grade & Strand</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="#sections">Sections</a>
+            </div>
+          </div>
+
+          <!-- Library -->
+          <div class="d-flex flex-column">
+            <a id="libraryToggle" href="#library" class="btn-tertiary btn-nav__sub-item">
+              <div>
+                <span class="mr-1 fa-solid fa-book-open"></span>
+                Library
+              </div>
+
+              <i id="libraryChevron" class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div id="libraryMenu" class="d-none flex-column">
+              <a class="ml-12 btn-tertiary btn-nav" href="#board-games">Board Games</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="#computers">Computers</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="#computer-usage">Computer Usage</a>
+            </div>
+          </div>
+
+          <!-- Visitors -->
+          <a href="./visitors.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-person-walking"></span>
+            Visitors
+          </a>
+
+          <!-- Staff/Accounts -->
+          <div class="d-flex flex-column">
+            <a id="staffToggle" href="#staff" class="btn-tertiary btn-tertiary__is-active btn-nav__sub-item">
+              <div>
+                <span class="mr-1 fa-solid fa-user-tie"></span>
+                Accounts
+              </div>
+
+              <i id="staffChevron" class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div id="staffMenu" class="d-none flex-column">
+              <a class="ml-12 btn-tertiary btn-nav btn-tertiary__is-active" href="./staff-accounts.html"
+                >Staff Accounts</a
+              >
+              <a class="ml-12 btn-tertiary btn-nav" href="#staff-duties">Staff Duties</a>
+            </div>
+          </div>
+
+          <!-- Reports -->
+          <a href="./reports.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-chart-column"></span>
+            Reports
+          </a>
+        </nav>
+
+        <!-- Sign-out -->
+        <div>
+          <a href="../index.html" class="w-100 btn-tertiary btn-nav">
+            <span class="fa-solid fa-right-to-bracket"></span>
+            Sign-out
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main container -->
+    <div class="w-100 h-screen">
+      <header class="px-10 pt-10 border-b border-light-gray header__h-18">
+        <div class="mb-2 d-flex gap-2">
+          <h1 class="text-lg" id="greeting"></h1>
+          <h1 class="text-lg">Admin</h1>
+        </div>
+        <div class="d-flex items-center justify-between">
+          <div>
+            <h1 class="text-32 font-extrabold">Accounts</h1>
+            <p class="text-sm text-gray mt-2">Manage registered accounts.</p>
+          </div>
+
+          <!-- DATE -->
+          <div class="bg-light border radius-md px-5 py-4">
+            <p class="text-xs text-gray font-bold">TODAY</p>
+            <h1 id="todayDate" class="mt-1 text-sm font-bold text-dark d-block">Loading...</h1>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN CONTENT -->
+      <div class="flex-1 h-screen d-flex flex-column overflow-y">
+        <!-- ACCOUNT CONTENT -->
+        <main class="p-10 flex-1">
+          <div class="d-flex items-start gap-6">
+            <!-- ACCOUNT TABLE - MIDDLE -->
+            <section class="flex-1">
+              <!-- TABLE TITLE -->
+              <div class="mb-5 d-flex items-center justify-between">
+                <div>
+                  <h2 class="text-xl font-bold">Accounts</h2>
+
+                  <p class="text-xs text-gray mt-2">View and manage registered accounts.</p>
+                </div>
+
+                <button type="button" class="btn-primary">+ Add Account</button>
+              </div>
+
+              <!-- ACCOUNT TABLE -->
+              <div class="bg-white border rounded-xl shadow-sm overflow-hidden">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+
+                      <th>STATUS</th>
+
+                      <th>ROLE</th>
+
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <!-- ONLY ACCOUNT FOR NOW -->
+                    <tr>
+                      <td>
+                        <div class="d-flex items-center gap-3">
+                          <input type="checkbox" name="account" />
+
+                          <div>
+                            <p class="font-bold text-sm">—</p>
+
+                            <p class="text-xs text-gray">—</p>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <span class="text-xs font-bold"> — </span>
+                      </td>
+
+                      <td>—</td>
+
+                      <td>
+                        <div class="d-flex items-center gap-2">
+                          <button type="button" class="btn-outline">EDIT</button>
+
+                          <button type="button" class="btn-outline">DELETE</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- VIEW ALL -->
+                <div class="p-5 border-t d-flex items-center justify-center">
+                  <a href="#all-accounts" class="text-xs text-primary font-bold"> VIEW ALL ACCOUNTS </a>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADD ACCOUNT FORM - RIGHT SIDE -->
+            <aside class="w-384 flex-shrink-0">
+              <div class="bg-white border rounded-xl shadow-sm p-6">
+                <form class="d-flex flex-column gap-3" action="">
+                  <!-- FORM TITLE -->
+                  <div class="mb-2">
+                    <p class="text-xs text-primary font-bold">ACCOUNT MANAGEMENT</p>
+
+                    <h1 class="text-xl font-bold mt-2">Add Accounts</h1>
+
+                    <p class="text-xs text-gray mt-2">Create a new library system account.</p>
+                  </div>
+
+                  <!-- LASTNAME -->
+                  <div>
+                    <label class="label" for="lastname"> Lastname </label>
+
+                    <input class="mt-1 input" type="text" name="lastname" id="lastname" placeholder="Enter lastname" />
+                  </div>
+
+                  <!-- FIRSTNAME -->
+                  <div>
+                    <label class="label" for="firstname"> Firstname </label>
+
+                    <input
+                      class="mt-1 input"
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      placeholder="Enter firstname"
+                    />
+                  </div>
+
+                  <!-- USERNAME -->
+                  <div>
+                    <label class="label" for="username"> Username </label>
+
+                    <input class="mt-1 input" type="text" name="username" id="username" placeholder="Enter username" />
+                  </div>
+
+                  <!-- PASSWORD -->
+                  <div>
+                    <label class="label" for="password"> Password </label>
+
+                    <input
+                      class="mt-1 input"
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Enter password"
+                    />
+                  </div>
+
+                  <!-- ROLE -->
+                  <div>
+                    <label class="label" for="role"> Role </label>
+
+                    <select class="mt-1 input" name="role" id="role">
+                      <option value="">Select role</option>
+
+                      <option value="admin">Admin</option>
+
+                      <option value="teacher">Teacher</option>
+
+                      <option value="staff">Staff</option>
+                    </select>
+                  </div>
+
+                  <!-- CONTACT NUMBER -->
+                  <div>
+                    <label class="label" for="contact-no"> Contact No. </label>
+
+                    <input
+                      class="mt-1 input"
+                      type="tel"
+                      name="contact-no"
+                      id="contact-no"
+                      placeholder="Enter contact no."
+                    />
+                  </div>
+
+                  <!-- EMAIL -->
+                  <div>
+                    <label class="label" for="email"> Email </label>
+
+                    <input class="mt-1 input" type="email" name="email" id="email" placeholder="Enter email" />
+                  </div>
+
+                  <!-- FORM BUTTONS -->
+                  <div class="d-flex items-center gap-3 mt-3">
+                    <button type="reset" class="btn-outline flex-1">Clear</button>
+
+                    <button type="submit" class="btn-primary flex-1">Add Account</button>
+                  </div>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="px-10 py-5 d-flex items-center flex-shrink-0">
+          <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</html>
