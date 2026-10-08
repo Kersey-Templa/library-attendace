@@ -157,7 +157,7 @@
                   <p class="text-xs text-gray mt-2">View and manage registered accounts.</p>
                 </div>
 
-                <button type="button" class="btn-primary">+ Add Account</button>
+                <button type="button" class="btn-primary" id="addAccountButton">+ Add Account</button>
               </div>
 
               <!-- ACCOUNT TABLE -->
@@ -165,7 +165,9 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>NAME</th>
+                      <th>ID</th>
+
+                      <th>FULL NAME</th>
 
                       <th>STATUS</th>
 
@@ -175,36 +177,7 @@
                     </tr>
                   </thead>
 
-                  <tbody>
-                    <!-- ONLY ACCOUNT FOR NOW -->
-                    <tr>
-                      <td>
-                        <div class="d-flex items-center gap-3">
-                          <input type="checkbox" name="account" />
-
-                          <div>
-                            <p class="font-bold text-sm">—</p>
-
-                            <p class="text-xs text-gray">—</p>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td>
-                        <span class="text-xs font-bold"> — </span>
-                      </td>
-
-                      <td>—</td>
-
-                      <td>
-                        <div class="d-flex items-center gap-2">
-                          <button type="button" class="btn-outline">EDIT</button>
-
-                          <button type="button" class="btn-outline">DELETE</button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
 
                 <!-- VIEW ALL -->
@@ -215,9 +188,9 @@
             </section>
 
             <!-- ADD ACCOUNT FORM - RIGHT SIDE -->
-            <aside class="w-384 flex-shrink-0">
-              <div class="bg-white border rounded-xl shadow-sm p-6">
-                <form class="d-flex flex-column gap-3" action="">
+            <aside id="accountFormContainer" class="w-384 flex-shrink-0 d-none">
+              <div class="bg-white border rounded-xl shadow-sm p-10">
+                <form class="d-flex flex-column gap-5" action="" id="accountForm">
                   <!-- FORM TITLE -->
                   <div class="mb-2">
                     <p class="text-xs text-primary font-bold">ACCOUNT MANAGEMENT</p>
@@ -308,6 +281,7 @@
 
                     <button type="submit" class="btn-primary flex-1">Add Account</button>
                   </div>
+                  <button type="button" class="btn-outline" id="cancelAccountButton">Cancel</button>
                 </form>
               </div>
             </aside>
@@ -323,4 +297,5 @@
   </body>
 
   <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/pages/staff-accounts.js"></script>
 </html>

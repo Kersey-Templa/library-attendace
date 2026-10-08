@@ -152,7 +152,7 @@
             </div>
 
             <p class="text-xs text-gray font-semibold">TOTAL VISITORS</p>
-            <h2 class="text-32 font-extrabold mt-2">0</h2>
+            <h2 id="totalVisitors" class="text-32 font-extrabold mt-2">0</h2>
             <p class="text-xs text-gray mt-2">Total library visits</p>
           </article>
 
@@ -166,7 +166,7 @@
             </div>
 
             <p class="text-xs text-gray font-semibold">TIME IN</p>
-            <h2 class="text-32 font-extrabold mt-2">0</h2>
+            <h2 id="totalTimeIn" class="text-32 font-extrabold mt-2">0</h2>
             <p class="text-xs text-gray mt-2">Currently inside</p>
           </article>
 
@@ -181,7 +181,7 @@
             </div>
 
             <p class="text-xs text-gray font-semibold">TIME OUT</p>
-            <h2 class="text-32 font-extrabold mt-2">0</h2>
+            <h2 id="totalTimeOut" class="text-32 font-extrabold mt-2">0</h2>
             <p class="text-xs text-gray mt-2">Completed visits</p>
           </article>
 
@@ -196,7 +196,7 @@
             </div>
 
             <p class="text-xs text-gray font-semibold">AVERAGE</p>
-            <h2 class="text-32 font-extrabold mt-2">0</h2>
+            <h2 id="averageVisitors" class="text-32 font-extrabold mt-2">0</h2>
             <p class="text-xs text-gray mt-2">Daily visitors</p>
           </article>
         </section>
@@ -238,15 +238,7 @@
                   </tr>
                 </thead>
 
-                <tbody>
-                  <tr>
-                    <td class="text-center">—</td>
-                    <td class="text-center">—</td>
-                    <td class="text-center">—</td>
-                    <td class="text-center">—</td>
-                    <td class="text-center">—</td>
-                  </tr>
-                </tbody>
+                <tbody id="recentAttendanceBody"></tbody>
               </table>
             </div>
           </article>

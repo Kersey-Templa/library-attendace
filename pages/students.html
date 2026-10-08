@@ -159,6 +159,7 @@
           <div class="w-320">
             <input type="text" class="input" id="studentSearch" placeholder="Search student..." />
           </div>
+
         </section>
 
         <!-- STUDENT TABLE -->
@@ -171,7 +172,7 @@
               <h2 class="text-lg font-bold mt-2">Student Records</h2>
             </div>
 
-            <p class="text-sm text-gray">5 Students</p>
+            <p class="text-sm text-gray">0 Student</p>
           </div>
 
           <!-- TABLE -->
@@ -219,11 +220,106 @@
 
           <!-- TABLE FOOTER -->
           <div class="p-5 bg-light border-t d-flex items-center justify-between">
-            <p class="text-xs text-gray">Showing 5 registered students</p>
+            <p class="text-xs text-gray">Showing 0 registered student</p>
 
             <p class="text-xs text-gray">Student Records</p>
           </div>
         </section>
+        <!-- ADD STUDENT MODAL -->
+        <div id="studentModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
+          <div class="w-100 h-100 d-flex items-center justify-center p-10">
+            <div class="bg-white border rounded-xl shadow-md p-6 w-384">
+              <!-- FORM HEADER -->
+              <div class="d-flex items-center justify-between mb-5">
+                <div>
+                  <p class="text-xs text-primary font-bold">STUDENT MANAGEMENT</p>
+
+                  <h2 class="text-xl font-bold mt-2">Add Student</h2>
+
+                  <p class="text-xs text-gray mt-2">Register a new student.</p>
+                </div>
+
+                <button type="button" id="closeStudentModal" class="btn-outline">✕</button>
+              </div>
+
+              <!-- FORM -->
+              <form id="studentForm" class="d-flex flex-column gap-3">
+                <!-- LASTNAME -->
+                <div>
+                  <label class="label" for="studentLastname"> Lastname </label>
+
+                  <input
+                    class="mt-1 input"
+                    type="text"
+                    id="studentLastname"
+                    name="lastname"
+                    placeholder="Enter lastname"
+                    required
+                  />
+                </div>
+
+                <!-- FIRSTNAME -->
+                <div>
+                  <label class="label" for="studentFirstname"> Firstname </label>
+
+                  <input
+                    class="mt-1 input"
+                    type="text"
+                    id="studentFirstname"
+                    name="firstname"
+                    placeholder="Enter firstname"
+                    required
+                  />
+                </div>
+
+                <!-- GRADE AND STRAND -->
+                <div>
+                  <label class="label" for="studentGradeStrand"> Grade & Strand </label>
+
+                  <select class="mt-1 input" id="studentGradeStrand" name="gradeStrand" required>
+                    <option value="">Select grade & strand</option>
+                    <option value="Grade 11 - Programming">Grade 11 - Programming</option>
+                    <option value="Grade 11 - ICT">Grade 11 - ICT</option>
+                    <option value="Grade 12 - Programming">Grade 12 - Programming</option>
+                    <option value="Grade 12 - ICT">Grade 12 - ICT</option>
+                  </select>
+                </div>
+
+                <!-- SCHOOL YEAR -->
+                <div>
+                  <label class="label" for="studentSchoolYear"> School Year </label>
+
+                  <select class="mt-1 input" id="studentSchoolYear" name="schoolYear" required>
+                    <option value="">Select school year</option>
+                    <option value="2025-2026">2025-2026</option>
+                    <option value="2026-2027">2026-2027</option>
+                    <option value="2027-2028">2027-2028</option>
+                  </select>
+                </div>
+
+                <!-- SECTION -->
+                <div>
+                  <label class="label" for="studentSection"> Section </label>
+
+                  <select class="mt-1 input" id="studentSection" name="section" required>
+                    <option value="">Select section</option>
+                    <option value="Programming A">Programming A</option>
+                    <option value="Programming B">Programming B</option>
+                    <option value="ICT A">ICT A</option>
+                    <option value="ICT B">ICT B</option>
+                  </select>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="d-flex items-center gap-3 mt-3">
+                  <button type="button" id="cancelStudentButton" class="btn-outline flex-1">Cancel</button>
+
+                  <button type="submit" class="btn-primary flex-1">Add Student</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </main>
 
       <!-- FOOTER -->
