@@ -57,9 +57,9 @@
             </a>
 
             <div id="schoolMenu" class="d-none flex-column">
-              <a class="ml-12 btn-tertiary btn-nav" href="../pages/school/school-year.html">School Year</a>
-              <a class="ml-12 btn-tertiary btn-nav" href="../pages/school/strand.html">Grade & Strand</a>
-              <a class="ml-12 btn-tertiary btn-nav" href="../pages/school/section.html">Sections</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="./school/school-year.html">School Year</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="./school/strand.html">Grade & Strand</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="./school/section.html">Sections</a>
             </div>
           </div>
 
@@ -75,11 +75,8 @@
             </a>
 
             <div id="libraryMenu" class="d-none flex-column">
-              <a class="ml-12 btn-tertiary btn-nav" href="#board-games"> Board Games </a>
-
-              <a class="ml-12 btn-tertiary btn-nav" href="#computers"> Computers </a>
-
-              <a class="ml-12 btn-tertiary btn-nav" href="#computer-usage"> Computer Usage </a>
+              <a class="ml-12 btn-tertiary btn-nav" href="./library/board-games.html">Board Games</a>
+              <a class="ml-12 btn-tertiary btn-nav" href="./library/computers.html">Computers</a>
             </div>
           </div>
 
@@ -90,21 +87,10 @@
           </a>
 
           <!-- Staff/Accounts -->
-          <div class="d-flex flex-column">
-            <a id="staffToggle" href="#staff" class="btn-tertiary btn-nav__sub-item">
-              <div>
-                <span class="mr-1 fa-solid fa-user-tie"></span>
-                Accounts
-              </div>
-
-              <i id="staffChevron" class="fa-solid fa-chevron-down"></i>
-            </a>
-
-            <div id="staffMenu" class="d-none flex-column">
-              <a class="ml-12 btn-tertiary btn-nav" href="./staff-accounts.html">Staff Accounts</a>
-              <a class="ml-12 btn-tertiary btn-nav" href="#staff-duties">Staff Duties</a>
-            </div>
-          </div>
+          <a href="./accounts.html" class="btn-tertiary btn-nav">
+            <span class="fa-solid fa-user-tie"></span>
+            Accounts
+          </a>
 
           <!-- Reports -->
           <a href="./reports.html" class="btn-tertiary btn-nav">
@@ -127,227 +113,228 @@
     <div class="w-100 h-screen">
       <!-- HEADER -->
       <div class="w-100 h-screen">
-      <header class="px-10 pt-10 border-b border-light-gray header__h-24">
-        <div class="mb-2 d-flex gap-2">
-          <h1 class="text-lg" id="greeting"></h1>
+        <header class="px-10 pt-10 border-b border-light-gray header__h-24">
+          <div class="mb-2 d-flex gap-2">
+            <h1 class="text-lg" id="greeting"></h1>
 
-          <h1 class="text-lg">Admin</h1>
-        </div>
-        <div class="d-flex items-center justify-between">
-          <div>
-            <h1 class="text-32 font-extrabold">Students</h1>
-            <p class="text-sm text-gray mt-2">Register and Manage Students Information.</p>
+            <h1 class="text-lg">Admin</h1>
           </div>
-
-          <!-- DATE -->
-          <div class="bg-light border radius-md px-5 py-4">
-            <p class="text-xs text-gray font-bold">TODAY</p>
-
-            <h1 id="todayDate" class="mt-1 text-sm font-bold text-dark d-block">Loading...</h1>
-          </div>
-        </div>
-      </header>
-
-      <!-- STUDENTS CONTENT -->
-      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
-        <!-- PAGE HEADER -->
-        <section class="d-flex items-center justify-between gap-5">
-          <div class="w-320">
-            <input type="text" class="input" id="studentSearch" placeholder="Search student..." />
-          </div>
-
-          <button type="button" id="addStudentButton" class="btn-primary">
-            <span class="fa-solid fa-plus"></span>
-            Add Student
-          </button>
-        </section>
-
-        <!-- STUDENT TABLE -->
-        <section class="bg-white rounded-xl border shadow-md overflow-hidden">
-          <!-- TABLE TITLE -->
-          <div class="p-6 border-b d-flex items-center justify-between">
+          <div class="d-flex items-center justify-between">
             <div>
-              <p class="text-xs text-primary font-bold">REGISTERED</p>
-
-              <h2 class="text-lg font-bold mt-2">Student Records</h2>
+              <h1 class="text-32 font-extrabold">Students</h1>
+              <p class="text-sm text-gray mt-2">Register and Manage Students Information.</p>
             </div>
 
-            <p class="text-sm text-gray">0 Student</p>
+            <!-- DATE -->
+            <div class="bg-light border radius-md px-5 py-4">
+              <p class="text-xs text-gray font-bold">TODAY</p>
+
+              <h1 id="todayDate" class="mt-1 text-sm font-bold text-dark d-block">Loading...</h1>
+            </div>
           </div>
+        </header>
 
-          <!-- TABLE -->
-          <div class="table-wrapper">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th class="text-center">ID NUMBER</th>
+        <!-- STUDENTS CONTENT -->
+        <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+          <!-- PAGE HEADER -->
+          <section class="d-flex items-center justify-between gap-5">
+            <div class="w-320">
+              <input type="text" class="input" id="studentSearch" placeholder="Search student..." />
+            </div>
 
-                  <th class="text-center">NAME</th>
+            <button type="button" id="addStudentButton" class="btn-primary">
+              <span class="fa-solid fa-plus"></span>
+              Add Student
+            </button>
+          </section>
 
-                  <th class="text-center">SECTION</th>
+          <!-- STUDENT TABLE -->
+          <section class="bg-white rounded-xl border shadow-md overflow-hidden">
+            <!-- TABLE TITLE -->
+            <div class="p-6 border-b d-flex items-center justify-between">
+              <div>
+                <p class="text-xs text-primary font-bold">REGISTERED</p>
 
-                  <th class="text-center">DATE REGISTERED</th>
-
-                  <th class="text-center">ACTIONS</th>
-                </tr>
-              </thead>
-
-              <tbody id="studentTableBody">
-                <tr>
-                  <td class="text-center">—</td>
-
-                  <td class="font-semibold">—</td>
-
-                  <td class="text-center">—</td>
-
-                  <td class="text-center">—</td>
-
-                  <td>
-                    <div class="d-flex items-center justify-center gap-2">
-                      <button type="button" class="btn-outline" title="Edit Student">
-                        <span class="fa-solid fa-pen"></span>
-                      </button>
-
-                      <button type="button" class="btn-danger" title="Delete Student">
-                        <span class="fa-solid fa-trash"></span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- TABLE FOOTER -->
-          <div class="p-5 bg-light border-t d-flex items-center justify-between">
-            <p class="text-xs text-gray">Showing 0 registered student</p>
-
-            <p class="text-xs text-gray">Student Records</p>
-          </div>
-        </section>
-        <!-- ADD STUDENT MODAL -->
-        <div id="studentModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
-          <div class="w-100 h-100 d-flex items-center justify-center p-10">
-            <div class="bg-white border rounded-xl shadow-md p-6 w-384">
-              <!-- FORM HEADER -->
-              <div class="d-flex items-center justify-between mb-5">
-                <div>
-                  <p class="text-xs text-primary font-bold">STUDENT MANAGEMENT</p>
-
-                  <h2 class="text-xl font-bold mt-2">Add Student</h2>
-
-                  <p class="text-xs text-gray mt-2">Register a new student.</p>
-                </div>
-
-                <button type="button" id="closeStudentModal" class="btn-outline">✕</button>
+                <h2 class="text-lg font-bold mt-2">Student Records</h2>
               </div>
 
-              <!-- FORM -->
-              <form id="studentForm" class="d-flex flex-column gap-3">
-                <!-- STUDENT ID NUMBER -->
-                <div>
-                  <label class="label" for="studentNumber">Student ID Number</label>
+              <p class="text-sm text-gray">0 Student</p>
+            </div>
 
-                  <input
-                    class="mt-1 input"
-                    type="text"
-                    id="studentNumber"
-                    name="studentNumber"
-                    placeholder="Enter student ID number"
-                    required
-                  />
+            <!-- TABLE -->
+            <div class="table-wrapper">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">ID NUMBER</th>
+
+                    <th class="text-center">NAME</th>
+
+                    <th class="text-center">SECTION</th>
+
+                    <th class="text-center">DATE REGISTERED</th>
+
+                    <th class="text-center">ACTIONS</th>
+                  </tr>
+                </thead>
+
+                <tbody id="studentTableBody">
+                  <tr>
+                    <td class="text-center">—</td>
+
+                    <td class="font-semibold">—</td>
+
+                    <td class="text-center">—</td>
+
+                    <td class="text-center">—</td>
+
+                    <td>
+                      <div class="d-flex items-center justify-center gap-2">
+                        <button type="button" class="btn-outline" title="Edit Student">
+                          <span class="fa-solid fa-pen"></span>
+                        </button>
+
+                        <button type="button" class="btn-danger" title="Delete Student">
+                          <span class="fa-solid fa-trash"></span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- TABLE FOOTER -->
+            <div class="p-5 bg-light border-t d-flex items-center justify-between">
+              <p class="text-xs text-gray">Showing 0 registered student</p>
+
+              <p class="text-xs text-gray">Student Records</p>
+            </div>
+          </section>
+          <!-- ADD STUDENT MODAL -->
+          <div id="studentModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
+            <div class="w-100 h-100 d-flex items-center justify-center p-10">
+              <div class="bg-white border rounded-xl shadow-md p-6 w-384">
+                <!-- FORM HEADER -->
+                <div class="d-flex items-center justify-between mb-5">
+                  <div>
+                    <p class="text-xs text-primary font-bold">STUDENT MANAGEMENT</p>
+
+                    <h2 class="text-xl font-bold mt-2">Add Student</h2>
+
+                    <p class="text-xs text-gray mt-2">Register a new student.</p>
+                  </div>
+
+                  <button type="button" id="closeStudentModal" class="btn-outline">✕</button>
                 </div>
 
-                <!-- LASTNAME -->
-                <div>
-                  <label class="label" for="studentLastname"> Lastname </label>
+                <!-- FORM -->
+                <form id="studentForm" class="d-flex flex-column gap-3">
+                  <!-- STUDENT ID NUMBER -->
+                  <div>
+                    <label class="label" for="studentNumber">Student ID Number</label>
 
-                  <input
-                    class="mt-1 input"
-                    type="text"
-                    id="studentLastname"
-                    name="lastname"
-                    placeholder="Enter lastname"
-                    required
-                  />
-                </div>
+                    <input
+                      class="mt-1 input"
+                      type="text"
+                      id="studentNumber"
+                      name="studentNumber"
+                      placeholder="Enter student ID number"
+                      required
+                    />
+                  </div>
 
-                <!-- FIRSTNAME -->
-                <div>
-                  <label class="label" for="studentFirstname"> Firstname </label>
+                  <!-- LASTNAME -->
+                  <div>
+                    <label class="label" for="studentLastname"> Lastname </label>
 
-                  <input
-                    class="mt-1 input"
-                    type="text"
-                    id="studentFirstname"
-                    name="firstname"
-                    placeholder="Enter firstname"
-                    required
-                  />
-                </div>
+                    <input
+                      class="mt-1 input"
+                      type="text"
+                      id="studentLastname"
+                      name="lastname"
+                      placeholder="Enter lastname"
+                      required
+                    />
+                  </div>
 
-                <!-- GRADE -->
-                <div>
-                  <label class="label" for="studentGrade"> Grade </label>
+                  <!-- FIRSTNAME -->
+                  <div>
+                    <label class="label" for="studentFirstname"> Firstname </label>
 
-                  <select class="mt-1 input" id="studentGrade" name="grade" required>
-                    <option value="">Select grade</option>
-                    <option value="Grade 1">Grade 1</option>
-                    <option value="Grade 2">Grdae 2</option>
-                    <option value="Grade 3">Grdae 3</option>
-                    <option value="Grade 4">Grdae 4</option>
-                    <option value="Grade 5">Grdae 5</option>
-                    <option value="Grade 6">Grdae 6</option>
-                    <option value="Grade 7">Grdae 7</option>
-                    <option value="Grade 8">Grdae 8</option>
-                    <option value="Grade 9">Grdae 9</option>
-                    <option value="Grade 10">Grdae 10</option>
-                    <option value="Grade 11">Grdae 11</option>
-                    <option value="Grade 12">Grdae 12</option>
-                  </select>
-                </div>
+                    <input
+                      class="mt-1 input"
+                      type="text"
+                      id="studentFirstname"
+                      name="firstname"
+                      placeholder="Enter firstname"
+                      required
+                    />
+                  </div>
 
-                <!-- SCHOOL YEAR -->
-                <div>
-                  <label class="label" for="studentSchoolYear"> School Year </label>
+                  <!-- GRADE -->
+                  <div>
+                    <label class="label" for="studentGrade"> Grade </label>
 
-                  <select class="mt-1 input" id="studentSchoolYear" name="schoolYear" required>
-                    <option value="">Select school year</option>
-                    <option value="2026-2027">2026-2027</option>
-                    <option value="2027-2028">2027-2028</option>
-                  </select>
-                </div>
+                    <select class="mt-1 input" id="studentGrade" name="grade" required>
+                      <option value="">Select grade</option>
+                      <option value="Grade 1">Grade 1</option>
+                      <option value="Grade 2">Grdae 2</option>
+                      <option value="Grade 3">Grdae 3</option>
+                      <option value="Grade 4">Grdae 4</option>
+                      <option value="Grade 5">Grdae 5</option>
+                      <option value="Grade 6">Grdae 6</option>
+                      <option value="Grade 7">Grdae 7</option>
+                      <option value="Grade 8">Grdae 8</option>
+                      <option value="Grade 9">Grdae 9</option>
+                      <option value="Grade 10">Grdae 10</option>
+                      <option value="Grade 11">Grdae 11</option>
+                      <option value="Grade 12">Grdae 12</option>
+                    </select>
+                  </div>
 
-                <!-- SECTION -->
-                <div>
-                  <label class="label" for="studentSection"> Section </label>
+                  <!-- SCHOOL YEAR -->
+                  <div>
+                    <label class="label" for="studentSchoolYear"> School Year </label>
 
-                  <select class="mt-1 input" id="studentSection" name="section" required>
-                    <option value="">Select section</option>
-                    <option value="Section 1">Section 1</option>
-                    <option value="Section 2">Section 2</option>
-                    <option value="Section 3">Section 3</option>
-                    <option value="Section 4">Section 4</option>
-                    <option value="Section 5">Section 5</option>
-                  </select>
-                </div>
+                    <select class="mt-1 input" id="studentSchoolYear" name="schoolYear" required>
+                      <option value="">Select school year</option>
+                      <option value="2026-2027">2026-2027</option>
+                      <option value="2027-2028">2027-2028</option>
+                    </select>
+                  </div>
 
-                <!-- BUTTONS -->
-                <div class="d-flex items-center gap-3 mt-3">
-                  <button type="button" id="cancelStudentButton" class="btn-outline flex-1">Cancel</button>
+                  <!-- SECTION -->
+                  <div>
+                    <label class="label" for="studentSection"> Section </label>
 
-                  <button type="submit" class="btn-primary flex-1">Add Student</button>
-                </div>
-              </form>
+                    <select class="mt-1 input" id="studentSection" name="section" required>
+                      <option value="">Select section</option>
+                      <option value="Section 1">Section 1</option>
+                      <option value="Section 2">Section 2</option>
+                      <option value="Section 3">Section 3</option>
+                      <option value="Section 4">Section 4</option>
+                      <option value="Section 5">Section 5</option>
+                    </select>
+                  </div>
+
+                  <!-- BUTTONS -->
+                  <div class="d-flex items-center gap-3 mt-3">
+                    <button type="button" id="cancelStudentButton" class="btn-outline flex-1">Cancel</button>
+
+                    <button type="submit" class="btn-primary flex-1">Add Student</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
 
-      <!-- FOOTER -->
-      <footer class="pl-10 d-flex flex-row items-center footer__h-5">
-        <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
-      </footer>
+        <!-- FOOTER -->
+        <footer class="pl-10 d-flex flex-row items-center footer__h-5">
+          <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
+        </footer>
+      </div>
     </div>
 
     <!-- JAVASCRIPT -->
