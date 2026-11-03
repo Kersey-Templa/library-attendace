@@ -129,39 +129,102 @@
         </div>
       </header>
 
-      <main>
-        <form>
-          <section>
-            <h2>Grade and Strand Form</h2>
+      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+        <!-- SEARCH AND ADD BUTTON -->
+        <section class="d-flex items-center justify-between gap-5">
+          <div class="w-320">
+            <input type="search" id="gradeStrandSearch" class="input" placeholder="Search grade or strand..." />
+          </div>
 
-            <div>
-              <label for="grade_level">Grade Level:</label>
-              <input type="text" id="grade_level" placeholder="e.g., 2026-2027" required />
-            </div>
+          <button type="button" id="addGradeStrandButton" class="btn-primary">
+            <span class="fa-solid fa-plus"></span>
+            Add Grade and Strand
+          </button>
+        </section>
 
-            <div>
-              <label for="strand">Strand:</label>
-              <input type="text" id="strand" name="strand" placeholder="e.g., Grade 11 - STEM" require />
-            </div>
+        <!-- TABLE -->
+        <div class="table-wrapper">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">GRADE</th>
+                <th class="text-center">STRAND</th>
+                <th class="text-center">DESCRIPTION</th>
+                <th class="text-center">ACTIONS</th>
+              </tr>
+            </thead>
 
-            <div>
-              <label for="description">Description:</label>
-              <textarea
-                id="description"
-                name="description"
-                rows="4"
-                placeholder="Enter section description. . ."
-              ></textarea>
-            </div>
+            <tbody id="gradeStrandTableBody">
+              <!-- Grade and strand records will appear here -->
+            </tbody>
+          </table>
+        </div>
 
-            <div>
-              <button type="submit">Submit Section</button>
+        <!-- TABLE FOOTER -->
+        <footer class="pl-10 d-flex flex-row items-center footer__h-5">
+          <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
+        </footer>
+
+        <!-- ADD GRADE AND STRAND MODAL -->
+        <div id="gradeStrandModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
+          <div class="w-100 h-100 d-flex items-center justify-center p-10">
+            <div class="bg-white border rounded-xl shadow-md p-6 w-384">
+              <!-- FORM HEADER -->
+              <div class="d-flex items-center justify-between mb-5">
+                <div>
+                  <p class="text-xs text-primary font-bold">GRADE AND STRAND MANAGEMENT</p>
+
+                  <h2 class="text-xl font-bold mt-2">Add Grade and Strand</h2>
+
+                  <p class="text-xs text-gray mt-2">Register a new grade and strand.</p>
+                </div>
+
+                <button type="button" id="closeGradeStrandModal" class="btn-outline">✕</button>
+              </div>
+
+              <!-- FORM -->
+              <form id="gradeStrandForm" class="d-flex flex-column gap-4">
+                <div>
+                  <label for="grade_level">Grade Level:</label>
+                  <input
+                    type="text"
+                    id="grade_level"
+                    name="grade_level"
+                    class="input"
+                    placeholder="e.g., Grade 11"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="strand">Strand:</label>
+                  <input type="text" id="strand" name="strand" class="input" placeholder="e.g., STEM" required />
+                </div>
+
+                <div>
+                  <label for="description">Description:</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="input"
+                    rows="4"
+                    placeholder="Enter strand description..."
+                  ></textarea>
+                </div>
+
+                <div class="d-flex justify-between gap-3 mt-2">
+                  <button type="button" id="cancelGradeStrandButton" class="btn-outline">Cancel</button>
+
+                  <button type="submit" class="btn-primary">Confirm</button>
+                </div>
+              </form>
             </div>
-          </section>
-        </form>
+          </div>
+        </div>
       </main>
     </div>
   </body>
 
   <script type="module" src="../../assets/js/main.js"></script>
+  <script type="module" src="../../assets/js/pages/strand.js"></script>
 </html>

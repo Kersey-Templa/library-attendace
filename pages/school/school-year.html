@@ -129,40 +129,113 @@
         </div>
       </header>
 
-      <main>
-        <form>
-          <section>
-            <h2>School Year Form</h2>
+      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+        <!-- SEARCH AND ADD BUTTON -->
+        <section class="d-flex items-center justify-between gap-5">
+          <div class="w-320">
+            <input type="search" id="schoolYearSearch" class="input" placeholder="Search school year..." />
+          </div>
 
-            <div>
-              <label for="staff">Staff:</label>
-              <input type="text" id="staff" name="staff" placeholder="e.g., 2026-2027" required />
-            </div>
+          <button type="button" id="addSchoolYearButton" class="btn-primary">
+            <span class="fa-solid fa-plus"></span>
+            Add School Year
+          </button>
+        </section>
 
-            <div>
-              <label for="school_year">School year:</label>
-              <input type="text" id="school_year" name="school_year" placeholder="e.g., Grade 11 - STEM" required />
-            </div>
+        <!-- SCHOOL YEAR TABLE -->
+        <div class="table-wrapper">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">STAFF</th>
+                <th class="text-center">SCHOOL YEAR</th>
+                <th class="text-center">START DATE</th>
+                <th class="text-center">END DATE</th>
+                <th class="text-center">IS ACTIVE</th>
+                <th class="text-center">ACTIONS</th>
+              </tr>
+            </thead>
 
-            <div>
-              <label for="start_date">Start date:</label>
-              <input type="text" id="start_date" name="start_date" placeholder="e.g., 10-26-26" required />
-            </div>
+            <tbody id="schoolYearTableBody">
+              <!-- Records will appear here -->
+            </tbody>
+          </table>
+        </div>
 
-            <div>
-              <label for="end_date">End date:</label>
-              <input type="text" id="end_date" name="end_date" placeholder="e.g.," required />
-            </div>
+        <!-- TABLE FOOTER -->
+        <div class="p-5 bg-light border-t d-flex items-center justify-between">
+          <p id="schoolYearRecordCount" class="text-xs text-gray">Showing 0 registered school years</p>
 
-            <div>
-              <label for="is_active">Is active:</label>
-              <input type="text" id="is_active" name="is_active" placeholder="e.g.," required />
+          <p class="text-xs text-gray">School Year Records</p>
+        </div>
+
+        <!-- ADD SCHOOL YEAR MODAL -->
+        <div id="schoolYearModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
+          <div class="w-100 h-100 d-flex items-center justify-center p-10">
+            <div class="bg-white border rounded-xl shadow-md p-6 w-384">
+              <!-- MODAL HEADER -->
+              <div class="d-flex items-center justify-between mb-5">
+                <div>
+                  <p class="text-xs text-primary font-bold">SCHOOL YEAR MANAGEMENT</p>
+
+                  <h2 id="schoolYearModalTitle" class="text-xl font-bold mt-2">Add School Year</h2>
+
+                  <p class="text-xs text-gray mt-2">Register a school year.</p>
+                </div>
+
+                <button type="button" id="closeSchoolYearModal" class="btn-outline">✕</button>
+              </div>
+
+              <!-- SCHOOL YEAR FORM -->
+              <form id="schoolYearForm" class="d-flex flex-column gap-4">
+                <div>
+                  <label for="staff">Staff:</label>
+                  <input type="text" id="staff" name="staff" class="input" placeholder="Enter staff name" required />
+                </div>
+
+                <div>
+                  <label for="school_year">School Year:</label>
+                  <input
+                    type="text"
+                    id="school_year"
+                    name="school_year"
+                    class="input"
+                    placeholder="e.g., 2026-2027"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="start_date">Start Date:</label>
+                  <input type="date" id="start_date" name="start_date" class="input" required />
+                </div>
+
+                <div>
+                  <label for="end_date">End Date:</label>
+                  <input type="date" id="end_date" name="end_date" class="input" required />
+                </div>
+
+                <div>
+                  <label for="is_active">Is Active:</label>
+                  <select id="is_active" name="is_active" class="input" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                <div class="d-flex justify-between gap-3 mt-2">
+                  <button type="button" id="cancelSchoolYearButton" class="btn-outline">Cancel</button>
+
+                  <button type="submit" class="btn-primary">Confirm</button>
+                </div>
+              </form>
             </div>
-          </section>
-        </form>
+          </div>
+        </div>
       </main>
     </div>
   </body>
 
   <script type="module" src="../../assets/js/main.js"></script>
+  <script type="module" src="../../assets/js/pages/school-year.js"></script>
 </html>
