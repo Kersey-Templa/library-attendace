@@ -185,27 +185,19 @@
 
               <form id="sectionForm" class="d-flex flex-column gap-4">
                 <div>
-                  <label for="school_year">School Year:</label>
-                  <input
-                    type="text"
-                    id="school_year"
-                    name="school_year"
-                    class="input"
-                    placeholder="e.g., 2026-2027"
-                    required
-                  />
+                  <label for="sectionSchoolYear">School Year:</label>
+
+                  <select id="sectionSchoolYear" name="school_year" class="input" required>
+                    <option value="">Select School Year</option>
+                  </select>
                 </div>
 
                 <div>
-                  <label for="grade_strand">Grade and Strand:</label>
-                  <input
-                    type="text"
-                    id="grade_strand"
-                    name="grade_strand"
-                    class="input"
-                    placeholder="e.g., Grade 11 - STEM"
-                    required
-                  />
+                  <label for="sectionGradeStrand">Grade and Strand:</label>
+
+                  <select id="sectionGradeStrand" name="grade_strand" class="input" required>
+                    <option value="">Select Grade and Strand</option>
+                  </select>
                 </div>
 
                 <div>
@@ -247,8 +239,7 @@
         </div>
       </main>
     </div>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script type="module" src="../../assets/js/pages/section.js"></script>
   </body>
-
-  <script type="module" src="../../assets/js/main.js"></script>
-  <script type="module" src="../../assets/js/pages/sections.js"></script>
 </html>

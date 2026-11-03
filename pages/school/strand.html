@@ -185,6 +185,14 @@
               <!-- FORM -->
               <form id="gradeStrandForm" class="d-flex flex-column gap-4">
                 <div>
+                  <label for="strandSchoolYear">School Year:</label>
+
+                  <select id="strandSchoolYear" name="school_year" class="input" required>
+                    <option value="">Select School Year</option>
+                  </select>
+                </div>
+
+                <div>
                   <label for="grade_level">Grade Level:</label>
                   <input
                     type="text"
@@ -223,8 +231,7 @@
         </div>
       </main>
     </div>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script type="module" src="../../assets/js/pages/strand.js"></script>
   </body>
-
-  <script type="module" src="../../assets/js/main.js"></script>
-  <script type="module" src="../../assets/js/pages/strand.js"></script>
 </html>

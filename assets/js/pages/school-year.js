@@ -1,6 +1,5 @@
 const STORAGE_KEY = "librarySchoolYears";
 
-// HTML elements
 const addButton = document.getElementById("addSchoolYearButton");
 const modal = document.getElementById("schoolYearModal");
 const closeButton = document.getElementById("closeSchoolYearModal");
@@ -18,66 +17,39 @@ const tableBody = document.getElementById("schoolYearTableBody");
 const recordCount = document.getElementById("schoolYearRecordCount");
 const modalTitle = document.getElementById("schoolYearModalTitle");
 
-// Load saved school years
-let schoolYears = [];
-
-try {
-  schoolYears = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-} catch (error) {
-  console.error("Could not load school year records:", error);
-}
-
+let schoolYears = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 let editingId = null;
 
-// Open modal
-addButton.addEventListener("click", () => {
+function saveRecords() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(schoolYears));
+}
+
+function openModal() {
   editingId = null;
   form.reset();
   modalTitle.textContent = "Add School Year";
   modal.classList.remove("d-none");
-});
+}
 
-// Close modal
 function closeModal() {
   modal.classList.add("d-none");
   form.reset();
   editingId = null;
 }
 
+addButton.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
 cancelButton.addEventListener("click", closeModal);
 
-// Save records to localStorage
-function saveRecords() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(schoolYears));
-}
-
-// Create table cell
-function createCell(value, className = "") {
-  const cell = document.createElement("td");
-  cell.textContent = value || "—";
-
-  if (className) {
-    cell.className = className;
-  }
-
-  return cell;
-}
-
-// Render table
 function renderTable(searchTerm = "") {
   tableBody.innerHTML = "";
 
   const filteredRecords = schoolYears.filter((record) => {
-    const searchableText = `
-      ${record.staff}
-      ${record.schoolYear}
-      ${record.startDate}
-      ${record.endDate}
-      ${record.isActive}
-    `.toLowerCase();
+    const text = [record.staff, record.schoolYear, record.startDate, record.endDate, record.isActive]
+      .join(" ")
+      .toLowerCase();
 
-    return searchableText.includes(searchTerm.toLowerCase());
+    return text.includes(searchTerm.toLowerCase());
   });
 
   if (filteredRecords.length === 0) {
@@ -94,16 +66,17 @@ function renderTable(searchTerm = "") {
     filteredRecords.forEach((record) => {
       const row = document.createElement("tr");
 
-      row.appendChild(createCell(record.staff, "text-center"));
-      row.appendChild(createCell(record.schoolYear, "text-center"));
-      row.appendChild(createCell(record.startDate, "text-center"));
-      row.appendChild(createCell(record.endDate, "text-center"));
-      row.appendChild(createCell(record.isActive, "text-center"));
+      [record.staff, record.schoolYear, record.startDate, record.endDate, record.isActive].forEach((value) => {
+        const cell = document.createElement("td");
+        cell.className = "text-center";
+        cell.textContent = value || "—";
+        row.appendChild(cell);
+      });
 
       const actionsCell = document.createElement("td");
-      const actionsContainer = document.createElement("div");
+      const actions = document.createElement("div");
 
-      actionsContainer.className = "d-flex items-center justify-center gap-2";
+      actions.className = "d-flex items-center justify-center gap-2";
 
       const editButton = document.createElement("button");
       editButton.type = "button";
@@ -119,8 +92,8 @@ function renderTable(searchTerm = "") {
       deleteButton.dataset.delete = record.id;
       deleteButton.innerHTML = '<span class="fa-solid fa-trash"></span>';
 
-      actionsContainer.append(editButton, deleteButton);
-      actionsCell.appendChild(actionsContainer);
+      actions.append(editButton, deleteButton);
+      actionsCell.appendChild(actions);
       row.appendChild(actionsCell);
 
       tableBody.appendChild(row);
@@ -130,7 +103,6 @@ function renderTable(searchTerm = "") {
   recordCount.textContent = `Showing ${filteredRecords.length} registered school year${filteredRecords.length === 1 ? "" : "s"}`;
 }
 
-// Add or edit a school year
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -146,29 +118,44 @@ form.addEventListener("submit", (event) => {
   }
 
   if (endDate < startDate) {
-    alert("The end date cannot be earlier than the start date.");
+    alert("End date cannot be earlier than start date.");
     return;
   }
 
-  const confirmed = confirm("Do you want to save this school year?");
+  if (
+    schoolYears.some(
+      (record) => record.schoolYear.toLowerCase() === schoolYear.toLowerCase() && record.id !== editingId,
+    )
+  ) {
+    alert("That school year already exists.");
+    return;
+  }
 
-  if (!confirmed) return;
+  if (!confirm("Confirm saving this school year?")) {
+    return;
+  }
+
+  // Only one school year can be active at a time.
+  if (isActive === "Yes") {
+    schoolYears = schoolYears.map((record) => ({
+      ...record,
+      isActive: "No",
+    }));
+  }
 
   if (editingId !== null) {
-    schoolYears = schoolYears.map((record) => {
-      if (record.id === editingId) {
-        return {
-          ...record,
-          staff,
-          schoolYear,
-          startDate,
-          endDate,
-          isActive,
-        };
-      }
-
-      return record;
-    });
+    schoolYears = schoolYears.map((record) =>
+      record.id === editingId
+        ? {
+            ...record,
+            staff,
+            schoolYear,
+            startDate,
+            endDate,
+            isActive,
+          }
+        : record,
+    );
   } else {
     schoolYears.push({
       id: Date.now(),
@@ -185,12 +172,10 @@ form.addEventListener("submit", (event) => {
   closeModal();
 });
 
-// Search school years
 searchInput.addEventListener("input", () => {
   renderTable(searchInput.value.trim());
 });
 
-// Edit and delete records
 tableBody.addEventListener("click", (event) => {
   const editButton = event.target.closest("[data-edit]");
   const deleteButton = event.target.closest("[data-delete]");
@@ -216,7 +201,7 @@ tableBody.addEventListener("click", (event) => {
   if (deleteButton) {
     const id = Number(deleteButton.dataset.delete);
 
-    if (confirm("Are you sure you want to delete this school year?")) {
+    if (confirm("Delete this school year? Grade and strand records connected to it will no longer be selectable.")) {
       schoolYears = schoolYears.filter((record) => record.id !== id);
 
       saveRecords();
@@ -225,5 +210,4 @@ tableBody.addEventListener("click", (event) => {
   }
 });
 
-// Display saved records when the page opens
 renderTable();

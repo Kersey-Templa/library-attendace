@@ -1,6 +1,6 @@
 const STORAGE_KEY = "libraryGradeStrands";
+const SCHOOL_YEAR_KEY = "librarySchoolYears";
 
-// HTML elements
 const addButton = document.getElementById("addGradeStrandButton");
 const modal = document.getElementById("gradeStrandModal");
 const closeButton = document.getElementById("closeGradeStrandModal");
@@ -11,51 +11,99 @@ const gradeInput = document.getElementById("grade_level");
 const strandInput = document.getElementById("strand");
 const descriptionInput = document.getElementById("description");
 
-const tableBody = document.getElementById("gradeStrandTableBody");
 const searchInput = document.getElementById("gradeStrandSearch");
+const tableBody = document.getElementById("gradeStrandTableBody");
 const recordCount = document.getElementById("gradeStrandRecordCount");
 
-// Load saved records
-let gradeStrands = [];
-
-try {
-  gradeStrands = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-} catch (error) {
-  console.error("Could not load grade and strand records:", error);
-}
-
+let gradeStrands = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let schoolYears = JSON.parse(localStorage.getItem(SCHOOL_YEAR_KEY)) || [];
 let editingId = null;
 
-// Open the modal
-addButton.addEventListener("click", () => {
+// Create a School Year dropdown if it is not already in the form.
+let schoolYearSelect = document.getElementById("strandSchoolYear");
+
+if (!schoolYearSelect) {
+  schoolYearSelect = document.createElement("select");
+  schoolYearSelect.id = "strandSchoolYear";
+  schoolYearSelect.name = "school_year";
+  schoolYearSelect.className = "input";
+  schoolYearSelect.required = true;
+
+  const wrapper = document.createElement("div");
+  const label = document.createElement("label");
+
+  label.htmlFor = "strandSchoolYear";
+  label.textContent = "School Year:";
+
+  wrapper.append(label, schoolYearSelect);
+
+  const gradeWrapper = gradeInput.closest("div");
+  form.insertBefore(wrapper, gradeWrapper);
+}
+
+function saveRecords() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(gradeStrands));
+}
+
+function loadSchoolYears(selectedId = "") {
+  schoolYears = JSON.parse(localStorage.getItem(SCHOOL_YEAR_KEY)) || [];
+
+  schoolYearSelect.innerHTML = "";
+
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Select School Year";
+
+  schoolYearSelect.appendChild(defaultOption);
+
+  schoolYears.forEach((schoolYear) => {
+    const option = document.createElement("option");
+
+    option.value = schoolYear.id;
+    option.textContent = schoolYear.schoolYear;
+
+    if (String(schoolYear.id) === String(selectedId)) {
+      option.selected = true;
+    }
+
+    schoolYearSelect.appendChild(option);
+  });
+}
+
+function openModal() {
   editingId = null;
   form.reset();
+  loadSchoolYears();
   modal.classList.remove("d-none");
-});
+}
 
-// Close the modal
 function closeModal() {
   modal.classList.add("d-none");
   form.reset();
   editingId = null;
 }
 
+addButton.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
 cancelButton.addEventListener("click", closeModal);
 
-// Save records
-function saveRecords() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(gradeStrands));
+function getSchoolYearName(schoolYearId) {
+  const schoolYear = schoolYears.find((item) => String(item.id) === String(schoolYearId));
+
+  return schoolYear ? schoolYear.schoolYear : "Unknown School Year";
 }
 
-// Render the table
 function renderTable(searchTerm = "") {
   tableBody.innerHTML = "";
 
-  const filteredRecords = gradeStrands.filter((record) => {
-    const searchableText = `${record.grade} ${record.strand} ${record.description}`.toLowerCase();
+  schoolYears = JSON.parse(localStorage.getItem(SCHOOL_YEAR_KEY)) || [];
 
-    return searchableText.includes(searchTerm.toLowerCase());
+  const filteredRecords = gradeStrands.filter((record) => {
+    const text = [record.grade, record.strand, record.description, getSchoolYearName(record.schoolYearId)]
+      .join(" ")
+      .toLowerCase();
+
+    return text.includes(searchTerm.toLowerCase());
   });
 
   if (filteredRecords.length === 0) {
@@ -84,9 +132,9 @@ function renderTable(searchTerm = "") {
       descriptionCell.textContent = record.description || "—";
 
       const actionsCell = document.createElement("td");
-      const actionsContainer = document.createElement("div");
+      const actions = document.createElement("div");
 
-      actionsContainer.className = "d-flex items-center justify-center gap-2";
+      actions.className = "d-flex items-center justify-center gap-2";
 
       const editButton = document.createElement("button");
       editButton.type = "button";
@@ -102,8 +150,8 @@ function renderTable(searchTerm = "") {
       deleteButton.dataset.delete = record.id;
       deleteButton.innerHTML = '<span class="fa-solid fa-trash"></span>';
 
-      actionsContainer.append(editButton, deleteButton);
-      actionsCell.appendChild(actionsContainer);
+      actions.append(editButton, deleteButton);
+      actionsCell.appendChild(actions);
 
       row.append(gradeCell, strandCell, descriptionCell, actionsCell);
 
@@ -111,42 +159,55 @@ function renderTable(searchTerm = "") {
     });
   }
 
-  recordCount.textContent = `Showing ${filteredRecords.length} registered grade${filteredRecords.length === 1 ? "" : "s"} and strand${filteredRecords.length === 1 ? "" : "s"}`;
+  recordCount.textContent = `Showing ${filteredRecords.length} registered grade and strand record${filteredRecords.length === 1 ? "" : "s"}`;
 }
 
-// Submit form
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  const schoolYearId = schoolYearSelect.value;
   const grade = gradeInput.value.trim();
   const strand = strandInput.value.trim();
   const description = descriptionInput.value.trim();
 
-  if (!grade || !strand) {
-    alert("Please enter the grade level and strand.");
+  if (!schoolYearId || !grade || !strand) {
+    alert("Please select a school year and enter the grade and strand.");
     return;
   }
 
-  const confirmed = confirm("Do you want to save this grade and strand?");
+  if (
+    gradeStrands.some(
+      (record) =>
+        String(record.schoolYearId) === String(schoolYearId) &&
+        record.grade.toLowerCase() === grade.toLowerCase() &&
+        record.strand.toLowerCase() === strand.toLowerCase() &&
+        record.id !== editingId,
+    )
+  ) {
+    alert("This grade and strand already exists for the selected school year.");
+    return;
+  }
 
-  if (!confirmed) return;
+  if (!confirm("Confirm saving this grade and strand?")) {
+    return;
+  }
 
   if (editingId !== null) {
-    gradeStrands = gradeStrands.map((record) => {
-      if (record.id === editingId) {
-        return {
-          ...record,
-          grade,
-          strand,
-          description,
-        };
-      }
-
-      return record;
-    });
+    gradeStrands = gradeStrands.map((record) =>
+      record.id === editingId
+        ? {
+            ...record,
+            schoolYearId,
+            grade,
+            strand,
+            description,
+          }
+        : record,
+    );
   } else {
     gradeStrands.push({
       id: Date.now(),
+      schoolYearId,
       grade,
       strand,
       description,
@@ -158,12 +219,10 @@ form.addEventListener("submit", (event) => {
   closeModal();
 });
 
-// Search records
 searchInput.addEventListener("input", () => {
   renderTable(searchInput.value.trim());
 });
 
-// Edit and delete records
 tableBody.addEventListener("click", (event) => {
   const editButton = event.target.closest("[data-edit]");
   const deleteButton = event.target.closest("[data-delete]");
@@ -176,9 +235,11 @@ tableBody.addEventListener("click", (event) => {
 
     editingId = record.id;
 
+    loadSchoolYears(record.schoolYearId);
+
     gradeInput.value = record.grade;
     strandInput.value = record.strand;
-    descriptionInput.value = record.description;
+    descriptionInput.value = record.description || "";
 
     modal.classList.remove("d-none");
   }
@@ -186,7 +247,7 @@ tableBody.addEventListener("click", (event) => {
   if (deleteButton) {
     const id = Number(deleteButton.dataset.delete);
 
-    if (confirm("Are you sure you want to delete this record?")) {
+    if (confirm("Delete this grade and strand? Sections connected to it will no longer be selectable.")) {
       gradeStrands = gradeStrands.filter((record) => record.id !== id);
 
       saveRecords();
@@ -195,5 +256,5 @@ tableBody.addEventListener("click", (event) => {
   }
 });
 
-// Display records on page load
+loadSchoolYears();
 renderTable();
