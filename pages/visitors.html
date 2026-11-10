@@ -106,13 +106,15 @@
       </div>
     </aside>
 
-    <!-- Main container -->
+    <!-- MAIN CONTAINER -->
     <div class="w-100 h-screen">
+      <!-- HEADER -->
       <header class="px-10 pt-10 border-b border-light-gray header__h-24">
         <div class="mb-2 d-flex gap-2">
           <h1 class="text-lg" id="greeting"></h1>
           <h1 class="text-lg">Admin</h1>
         </div>
+
         <div class="d-flex items-center justify-between">
           <div>
             <h1 class="text-32 font-extrabold">Visitors</h1>
@@ -127,13 +129,159 @@
         </div>
       </header>
 
-      <main class="p-10 d-flex flex-column gap-5 main-container__h-77"></main>
+      <!-- VISITOR CONTENT: NOW UNDER THE HEADER -->
+      <main class="p-10 d-flex flex-column gap-5 main-container__h-77">
+        <!-- SEARCH, FILTERS AND ADD BUTTON -->
+        <section class="d-flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex-1">
+            <input type="search" id="visitorSearch" class="input" placeholder="Search by name, ID, or purpose..." />
+          </div>
 
+          <div class="w-160">
+            <select id="visitorTypeFilter" class="input">
+              <option value="">All Visitor Types</option>
+              <option value="Student">Student</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Guest">Guest</option>
+              <option value="Staff">Staff</option>
+            </select>
+          </div>
+
+          <div class="w-160">
+            <select id="visitorPurposeFilter" class="input">
+              <option value="">All Purposes</option>
+              <option value="Study">Study</option>
+              <option value="Research">Research</option>
+              <option value="Reading">Reading</option>
+              <option value="Borrowing">Borrowing</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="w-160">
+            <input type="date" id="visitorDateFilter" class="input" title="Filter by date" />
+          </div>
+
+          <button type="button" id="addVisitorButton" class="btn-primary">
+            <span class="fa-solid fa-plus"></span>
+            Add Visitor
+          </button>
+        </section>
+
+        <!-- VISITOR TABLE -->
+        <div class="table-wrapper">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="text-center">VISITOR ID</th>
+                <th class="text-center">FULL NAME</th>
+                <th class="text-center">TYPE</th>
+                <th class="text-center">STUDENT ID NO.</th>
+                <th class="text-center">PURPOSE OF VISIT</th>
+                <th class="text-center">DATE</th>
+                <th class="text-center">TIME IN</th>
+                <th class="text-center">TIME OUT</th>
+                <th class="text-center">STATUS</th>
+                <th class="text-center">ACTION</th>
+              </tr>
+            </thead>
+
+            <tbody id="visitorTableBody">
+              <!-- Visitor records will appear here -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TABLE FOOTER -->
+        <div class="p-5 bg-light border-t d-flex items-center justify-between">
+          <p id="visitorRecordCount" class="text-xs text-gray">Showing 0 visitors</p>
+
+          <p class="text-xs text-gray">Visitor Records</p>
+        </div>
+
+        <!-- ADD VISITOR POPUP -->
+        <div id="visitorModal" class="d-none position-fixed top-0 left-0 w-100 h-100 bg-light">
+          <div class="w-100 h-100 d-flex items-center justify-center p-10">
+            <div class="bg-white border rounded-xl shadow-md p-6 w-384">
+              <!-- POPUP HEADER -->
+              <div class="d-flex items-center justify-between mb-5">
+                <div>
+                  <p class="text-xs text-primary font-bold">VISITOR MANAGEMENT</p>
+
+                  <h2 class="text-xl font-bold mt-2">Add Visitor</h2>
+
+                  <p class="text-xs text-gray mt-2">Register a new library visitor.</p>
+                </div>
+
+                <button type="button" id="closeVisitorModal" class="btn-outline">✕</button>
+              </div>
+
+              <!-- VISITOR FORM -->
+              <form id="visitorForm" class="d-flex flex-column gap-4">
+                <div>
+                  <label for="visitorName">Full Name:</label>
+                  <input
+                    type="text"
+                    id="visitorName"
+                    name="visitorName"
+                    class="input"
+                    placeholder="Enter visitor's full name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="visitorType">Visitor Type:</label>
+                  <select id="visitorType" name="visitorType" class="input" required>
+                    <option value="">Select Visitor Type</option>
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Guest">Guest</option>
+                    <option value="Staff">Staff</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="visitorStudentId">Student ID Number:</label>
+                  <input
+                    type="text"
+                    id="visitorStudentId"
+                    name="visitorStudentId"
+                    class="input"
+                    placeholder="Enter student ID (if applicable)"
+                  />
+                </div>
+
+                <div>
+                  <label for="visitorPurpose">Purpose of Visit:</label>
+                  <select id="visitorPurpose" name="visitorPurpose" class="input" required>
+                    <option value="">Select Purpose</option>
+                    <option value="Study">Study</option>
+                    <option value="Research">Research</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Borrowing">Borrowing</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <!-- FORM BUTTONS -->
+                <div class="d-flex justify-between gap-3 mt-2">
+                  <button type="button" id="cancelVisitorButton" class="btn-outline">Cancel</button>
+
+                  <button type="submit" class="btn-primary">Confirm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
       <footer class="pl-10 d-flex flex-row items-center footer__h-5">
         <p class="text-xs text-gray">2026 Library Attendance Monitoring System. All rights reserved.</p>
       </footer>
     </div>
-    
   </body>
   <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/pages/visitors.js"></script>
 </html>
