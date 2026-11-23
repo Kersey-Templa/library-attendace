@@ -42,10 +42,17 @@
           </div>
 
           <!--  LOGIN FORM  -->
-          <form class="mb-3 px-8" action="#" method="post">
+          <form class="mb-3 px-8" action="#" method="post" id="sign-in-form">
             <div class="mb-5">
               <label for="username" class="label">Username</label>
-              <input class="mt-2 input" type="text" name="" id="" placeholder="Enter your username" required />
+              <input
+                class="mt-2 input"
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Enter your username"
+                required
+              />
             </div>
 
             <!-- PASSWORD -->
@@ -55,7 +62,14 @@
                 <a href="#" class="btn-link">Forgot Password?</a>
               </div>
 
-              <input class="input" type="password" name="" id="" placeholder="Enter your password" required />
+              <input
+                class="input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
             </div>
 
             <!-- REMEMBER ME -->
@@ -65,11 +79,13 @@
               <label for="remember" class="text-sm text-gray"> Remember me </label>
             </div>
 
+            <!-- ERROR -->
+            <p id="error-message" role="alert"></p>
+
             <!-- SIGN IN BUTTON -->
             <div class="w-100">
               <!-- Comment or uncomment this code when using exact button -->
-              <!-- <button class="w-100 btn-primary btn-sign-in" type="submit" >Sign In</button> -->
-              <a class="w-100 btn-primary btn-sign-in" href="../pages/dashboard.html">Temporary Sign In</a>
+              <button class="w-100 btn-primary btn-sign-in" type="submit" id="sign-in-button">Sign In</button>
             </div>
           </form>
 
@@ -85,5 +101,7 @@
       </div>
       <p class="text-xs text-gray text-center">© 2026 Library Attendance Monitoring System</p>
     </main>
+
+    <script type="module" src="../assets/js/pages/sign-in.js"></script>
   </body>
 </html>
